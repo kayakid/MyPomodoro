@@ -1,1 +1,3 @@
-# gear-tradi
+# gear-trading
+
+Trading tools based on gear funct
