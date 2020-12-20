@@ -4,4 +4,5 @@ use clap::{arg, command, Parser};
 use std::fs;
 use gear_trading::hff::agents::*;
 
-#[derive(Pars
+#[derive(Parser, Debug)]
+#[command(autho
