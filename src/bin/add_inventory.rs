@@ -5,4 +5,4 @@ use std::fs;
 use gear_trading::hff::agents::*;
 
 #[derive(Parser, Debug)]
-#[command(autho
+#[command(author, version, about, long_about = None)]
