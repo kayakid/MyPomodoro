@@ -7,4 +7,5 @@ use gear_trading::hff::agents::*;
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
-    /// Name of the hedger
+    /// Name of the hedger file
+    #[arg(short = 'f', long)]
