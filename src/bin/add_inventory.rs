@@ -9,4 +9,6 @@ use gear_trading::hff::agents::*;
 struct Args {
     /// Name of the hedger file
     #[arg(short = 'f', long)]
-    hedger_file: Option<S
+    hedger_file: Option<String>,
+
+   #[arg(short = 'a',
