@@ -11,4 +11,7 @@ struct Args {
     #[arg(short = 'f', long)]
     hedger_file: Option<String>,
 
-   #[arg(short = 'a',
+   #[arg(short = 'a', long)]
+   agent: String,
+
+    #[a
