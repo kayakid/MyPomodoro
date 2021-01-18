@@ -14,4 +14,5 @@ struct Args {
    #[arg(short = 'a', long)]
    agent: String,
 
-    #[a
+    #[arg(short = 'n', long)]
+   name: Strin
