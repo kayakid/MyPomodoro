@@ -15,4 +15,8 @@ struct Args {
    agent: String,
 
     #[arg(short = 'n', long)]
-   name: Strin
+   name: String,
+}
+
+fn main() {
+    let args = Ar
