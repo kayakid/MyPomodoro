@@ -22,4 +22,5 @@ fn main() {
     let args = Args::parse();
 
     //let cp = args.hedgerfile.as_deref();
-    let mut 
+    let mut hedger = args
+        .hedger_file
