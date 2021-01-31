@@ -19,4 +19,6 @@ struct Args {
 }
 
 fn main() {
-    let args = Ar
+    let args = Args::parse();
+
+    //let cp = arg
