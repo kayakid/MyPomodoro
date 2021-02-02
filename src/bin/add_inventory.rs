@@ -25,4 +25,5 @@ fn main() {
     let mut hedger = args
         .hedger_file
         .as_deref()
-   
+        .map(|f| {
+         
