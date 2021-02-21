@@ -27,4 +27,4 @@ fn main() {
         .as_deref()
         .map(|f| {
             let hstr = fs::read_to_string(f).ok();
-            hstr.map(
+            hstr.map(|s| serde_json::from_str::<AgentInventory<
