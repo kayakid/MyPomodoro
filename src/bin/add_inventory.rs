@@ -26,4 +26,5 @@ fn main() {
         .hedger_file
         .as_deref()
         .map(|f| {
-            let hstr = fs::read_
+            let hstr = fs::read_to_string(f).ok();
+            hstr.map(
