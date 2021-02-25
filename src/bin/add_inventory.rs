@@ -28,4 +28,6 @@ fn main() {
         .map(|f| {
             let hstr = fs::read_to_string(f).ok();
             hstr.map(|s| serde_json::from_str::<AgentInventory<GearHedger>>(s.as_str()).ok())
-            
+                .flatten()
+        })
+ 
