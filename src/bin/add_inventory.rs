@@ -30,4 +30,6 @@ fn main() {
             hstr.map(|s| serde_json::from_str::<AgentInventory<GearHedger>>(s.as_str()).ok())
                 .flatten()
         })
- 
+        .flatten().unwrap();
+
+    let age
