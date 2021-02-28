@@ -32,4 +32,4 @@ fn main() {
         })
         .flatten().unwrap();
 
-    let agent = serde_json::from_str::<GAge
+    let agent = serde_json::from_str::<GAgent>(args.agent.as_str()).ok().u
