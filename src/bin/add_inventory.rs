@@ -32,4 +32,4 @@ fn main() {
         })
         .flatten().unwrap();
 
-    let age
+    let agent = serde_json::from_str::<GAge
