@@ -33,4 +33,4 @@ fn main() {
         .flatten().unwrap();
 
     let agent = serde_json::from_str::<GAgent>(args.agent.as_str()).ok().unwrap();
-    hedger.agents.insert(a
+    hedger.agents.insert(args.name.clone(), agent.build().unw
