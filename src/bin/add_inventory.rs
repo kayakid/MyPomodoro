@@ -35,4 +35,5 @@ fn main() {
     let agent = serde_json::from_str::<GAgent>(args.agent.as_str()).ok().unwrap();
     hedger.agents.insert(args.name.clone(), agent.build().unwrap());
 
-    println!("{}", serde_js
+    println!("{}", serde_json::to_string(&hedger).unwrap());
+}
