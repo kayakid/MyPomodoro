@@ -34,3 +34,35 @@ error_chain! {
 #[command(author, version, about, long_about = None)]
 struct Args {
     /// Name of the hedger file
+    #[arg(short = 'f', long)]
+    hedger_file: Option<String>,
+
+    #[arg(short = 's', long)]
+    spectrum_url: String,
+}
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn Error>> {
+    let args = Args::parse();
+
+    let spectrum_url = args.spectrum_url;
+    let spectrum_client = SpectrumClient::new(spectrum_url);
+
+    //let cp = args.hedgerfile.as_deref();
+    let hedger_opt = args
+        .hedger_file
+        .as_deref()
+        .map(|f| {
+            let hstr = fs::read_to_string(f).ok();
+            hstr.map(|s| serde_json::from_str::<AgentInventory<GearHedger>>(s.as_str()).ok())
+                .flatten()
+        })
+        .flatten();
+
+    if hedger_opt.is_none() {}
+
+    let delay = time::Duration::from_secs(15);
+    let mut iter = 0;
+
+    let oanda_url = env::var("OANDA_URL")?;
+    let oanda_account = env::var("OANDA_ACCOUNT")?;
