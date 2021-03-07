@@ -94,3 +94,39 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let os = sp.overshoots.iter().filter(|p| p.0 == 0.1).last().unwrap().1;
 
     let mut cDir = os.direction;
+    let mut cOS = os.maxOS();
+
+    //println!("{:?}", spectrum_client.get().await.unwrap().to_spectrum());
+
+    loop {
+        // control loop counts and timing
+        if iter != 0 {
+            thread::sleep(delay);
+        }
+        iter = iter + 1;
+        if iter > 10000 {
+            break;
+        }
+
+        // now what we need to create a coastline agent
+        let sp = spectrum_client.get().await.map(|s| s.to_spectrum());
+        // if we get a spectrum from the service
+        if let Some(os) = sp.map(|e| e.overshoots.iter().filter(|p| p.0 == 0.1).last().unwrap().1) {
+            // reversal create a coastline agent
+            // all these things should be config at startup...
+            // scale: 0.0010  trading thresholds
+            // size: 10000    trading size at scale
+            // depth: 15      how many times size to accumulate
+            // altitude: 15   how many times size would we accumulate on the other side
+            // shift: 1       how many size are we shifted on entry
+            if os.direction != cDir {
+                let scale = 0.0010;
+                let size = 10000.0;
+                let target = scale * size;
+                let price = os.current;
+                let price0 = price - 15.0 * scale - os.direction.signum() as f64 * scale;
+                let pricen = price + 15.0 * scale - os.direction.signum() as f64 * scale;
+                let exposure0 = 15.0 * size;
+                let exposuren = -15.0 * size;
+                let mut agent = GAgent::Segment{price0: price0, exposure0: exposure0, pricen: pricen, exposuren: exposuren, scale: scale, target: 10.0}.build().unwrap();
+                let key = format!("coastline_{}", if os.direction > 0 {"short"} else {"long"});
