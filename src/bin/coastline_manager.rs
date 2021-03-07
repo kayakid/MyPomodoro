@@ -130,3 +130,35 @@ async fn main() -> Result<(), Box<dyn Error>> {
                 let exposuren = -15.0 * size;
                 let mut agent = GAgent::Segment{price0: price0, exposure0: exposure0, pricen: pricen, exposuren: exposuren, scale: scale, target: 10.0}.build().unwrap();
                 let key = format!("coastline_{}", if os.direction > 0 {"short"} else {"long"});
+                eprintln!("Creating the agent on reversal: {:?}", agent);
+                // TODO check the target agent key status to see if we add, or re-activate a new one
+                if hedger.agents.get(&key).is_none() {
+                    hedger.agents.insert(key, agent);
+                }
+            }
+            // update the direction and current overshoot
+            cDir = os.direction;
+            cOS = os.maxOS();
+        }
+
+        // get the market tick
+        let tick = client
+            .get_pricing(String::from("EUR_USD"))
+            .await
+            .unwrap()
+            .get_tick();
+
+        // time now
+        let now = Utc::now().timestamp();
+
+        // check account positions
+        let positions = client.get_open_positions().await.unwrap().to_position_vec();
+        //println!("{:?}", positions);
+
+        // compare target exposure with actual
+        let target_exposure = hedger.next_exposure(&tick);
+        let account_exposure = positions.iter().filter(|p| p.instrument == "EUR_USD").last().map_or_else(|| 0, |p| p.units);
+        //println!("Target Exposure: {}", target_exposure);
+        //println!("Actual Exposure: {}", account_exposure);
+
+        // no trade
