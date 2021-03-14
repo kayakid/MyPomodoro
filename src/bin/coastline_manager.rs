@@ -162,3 +162,36 @@ async fn main() -> Result<(), Box<dyn Error>> {
         //println!("Actual Exposure: {}", account_exposure);
 
         // no trade
+        if target_exposure == account_exposure {
+            continue;
+        }
+
+        // create order
+        let order = OrderRequest::new(target_exposure - account_exposure, "EUR_USD".to_string());
+
+        eprintln!("Trading : {} to reach {} at price", target_exposure - account_exposure, target_exposure);
+
+        client.post_order_request(&order).await.map_or(
+                eprintln!("Cannot get the Post Order to Oanda, will try again next cycle"),
+            |order_fill| {
+                    order_fill.get_order_fill().map_or(
+                            eprintln!("Cannot get the OrderFill from response, will try again next cycle"),
+                    |of| {
+                                hedger.update_on_fill(&of);
+                                let hedger_str = serde_json::to_string(&hedger).ok().unwrap();
+                                println!("{}", hedger_str);
+                            },
+                );
+                },
+        );
+        // cleanup the closed agents
+        hedger.agents.retain(|key, ga| {
+            if ! ga.is_active() {
+                eprintln!("Removing agent {} inactivated on PL: {:.2} and exposure {}", key, ga.agentPL.cum_profit, ga.exposure());
+            }
+            ga.active
+        });
+    }
+
+    Ok(())
+}
