@@ -33,3 +33,31 @@ error_chain! {
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
+    /// Name of the hedger file
+    #[arg(short = 'f', long)]
+    hedger_file: Option<String>,
+
+    #[arg(short = 'a', long)]
+   agent: Option<String>,
+
+    #[arg(short = 'n', long)]
+   name: Option<String>,
+}
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn Error>> {
+    let args = Args::parse();
+
+
+    //let cp = args.hedgerfile.as_deref();
+    let hedger_opt = args
+        .hedger_file
+        .as_deref()
+        .map(|f| {
+            let hstr = fs::read_to_string(f).ok();
+            hstr.map(|s| serde_json::from_str::<AgentInventory<BiCoastAgent>>(s.as_str()).ok())
+                .flatten()
+        })
+        .flatten();
+
+    if hedger_opt.is_none() {
