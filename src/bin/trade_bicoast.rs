@@ -61,3 +61,41 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .flatten();
 
     if hedger_opt.is_none() {
+
+    }
+
+    let delay = time::Duration::from_secs(15);
+    let mut iter = 0;
+
+    let oanda_url = env::var("OANDA_URL")?;
+    let oanda_account = env::var("OANDA_ACCOUNT")?;
+    let oanda_api_key = env::var("OANDA_API_KEY")?;
+
+    let client = Client::new(
+        oanda_url.clone(),
+        oanda_account.clone(),
+        oanda_api_key.clone(),
+    );
+    let mut hedger =
+        hedger_opt.unwrap_or_else(|| {
+            let mut inventory: AgentInventory<BiCoastAgent> = AgentInventory::new();
+            inventory
+        });
+
+    if args.agent.is_some() && args.name.is_some() {
+        let agent = serde_json::from_str::<GBiAgent>(args.agent.unwrap().as_str()).ok().unwrap();
+        hedger.agents.insert(args.name.unwrap().clone(), agent.build());
+    }
+
+    let hedger_str = serde_json::to_string(&hedger).ok().unwrap();
+    println!("{}", hedger_str);
+
+    loop {
+        // control loop counts and timing
+        if iter != 0 {
+            thread::sleep(delay);
+        }
+        iter = iter + 1;
+        if iter > 34500 {
+            break;
+        }
