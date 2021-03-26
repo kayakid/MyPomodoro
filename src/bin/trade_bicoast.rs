@@ -99,3 +99,40 @@ async fn main() -> Result<(), Box<dyn Error>> {
         if iter > 34500 {
             break;
         }
+
+        // get the market tick
+        let tick = client
+            .get_pricing(String::from("EUR_USD"))
+            .await
+            .unwrap()
+            .get_tick();
+
+        // time now
+        let now = Utc::now().timestamp();
+
+        // check account positions
+        let positions = client.get_open_positions().await.unwrap().to_position_vec();
+        //println!("{:?}", positions);
+
+        // compare target exposure with actual
+        let target_exposure = hedger.next_exposure(&tick);
+        let account_exposure = positions.iter().filter(|p| p.instrument == "EUR_USD").last().map_or_else(|| 0, |p| p.units);
+        //println!("Target Exposure: {}", target_exposure);
+        //println!("Actual Exposure: {}", account_exposure);
+
+        // no trade
+        if target_exposure == account_exposure {
+
+            continue;
+        }
+
+        // create order
+        let order = OrderRequest::new(target_exposure - account_exposure, "EUR_USD".to_string());
+
+        eprintln!("Trading : {} to reach {} at price {}", target_exposure - account_exposure, target_exposure, tick.price());
+
+        client.post_order_request(&order).await.map_or(
+            eprintln!("Cannot get the Post Order to Oanda, will try again next cycle"),
+            |order_fill| {
+                order_fill.get_order_fill().map_or(
+                    eprintln!("Cannot get the OrderFill from response, will try again next cycle"),
