@@ -136,3 +136,16 @@ async fn main() -> Result<(), Box<dyn Error>> {
             |order_fill| {
                 order_fill.get_order_fill().map_or(
                     eprintln!("Cannot get the OrderFill from response, will try again next cycle"),
+                    |of| {
+                        hedger.update_on_fill(&of);
+                        let hedger_str = serde_json::to_string(&hedger).ok().unwrap();
+                        println!("{}", hedger_str);
+                    },
+                );
+            },
+        );
+
+    }
+
+    Ok(())
+}
