@@ -51,3 +51,41 @@ struct Args {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
+    let args = Args::parse();
+
+
+    //let cp = args.hedgerfile.as_deref();
+    let hedger_opt = args
+        .hedger_file
+        .as_deref()
+        .map(|f| {
+            let hstr = fs::read_to_string(f).ok();
+            hstr.map(|s| serde_json::from_str::<AgentInventory<GearHedger>>(s.as_str()).ok())
+                .flatten()
+        })
+        .flatten();
+
+    if hedger_opt.is_none() {}
+
+    let delay = time::Duration::from_secs(15);
+    let mut iter = 0;
+
+    let oanda_url = env::var("OANDA_URL")?;
+    let oanda_account = env::var("OANDA_ACCOUNT")?;
+    let oanda_api_key = env::var("OANDA_API_KEY")?;
+
+    let client = Client::new(
+        oanda_url.clone(),
+        oanda_account.clone(),
+        oanda_api_key.clone(),
+    );
+    let mut hedger =
+        hedger_opt.unwrap_or_else(|| {
+            let mut inventory: AgentInventory<GearHedger> = AgentInventory::new();
+            inventory
+        });
+
+    if args.agent.is_some() && args.name.is_some() {
+        let agent = serde_json::from_str::<GAgent>(args.agent.unwrap().as_str()).ok().unwrap().build();
+        hedger.agents.insert(args.name.unwrap().clone(), agent.unwrap());
+    }
