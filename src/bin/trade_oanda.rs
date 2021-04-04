@@ -89,3 +89,39 @@ async fn main() -> Result<(), Box<dyn Error>> {
         let agent = serde_json::from_str::<GAgent>(args.agent.unwrap().as_str()).ok().unwrap().build();
         hedger.agents.insert(args.name.unwrap().clone(), agent.unwrap());
     }
+
+    if args.clean {
+        hedger.agents.retain(|_name, agent| agent.active);
+    }
+
+    let hedger_str = serde_json::to_string(&hedger).ok().unwrap();
+    println!("{}", hedger_str);
+
+    loop {
+        if args.dry {
+            break;
+        }
+        // control loop counts and timing
+        if iter != 0 {
+            thread::sleep(delay);
+        }
+        iter = iter + 1;
+        if iter > 10000 {
+            break;
+        }
+
+        // get the market tick
+        let tick_opt = client
+            .get_pricing(String::from("EUR_USD"))
+            .await
+            .map(|x| x.get_tick());
+        if tick_opt.is_none() {
+            continue;
+        }
+        let tick = tick_opt.unwrap();
+
+        // time now
+        let now = Utc::now().timestamp();
+
+        // check account positions
+        let positions_opt = client.get_open_positions().await.map(|x| x.to_position_vec());
