@@ -1,3 +1,5 @@
 #[derive(Debug)]
 pub struct Position {
-    pub in
+    pub instrument: String,
+    pub units: i64,
+    pub
