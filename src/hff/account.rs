@@ -1,2 +1,3 @@
 #[derive(Debug)]
-pub s
+pub struct Position {
+    pub in
