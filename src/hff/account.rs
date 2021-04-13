@@ -2,4 +2,7 @@
 pub struct Position {
     pub instrument: String,
     pub units: i64,
-    pub
+    pub price: Option<f64>,
+}
+
+#[derive(
