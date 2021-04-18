@@ -5,4 +5,6 @@ pub struct Position {
     pub price: Option<f64>,
 }
 
-#[derive(
+#[derive(Debug)]
+pub struct OrderFill {
+    pub
