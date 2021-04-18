@@ -8,4 +8,5 @@ pub struct Position {
 #[derive(Debug)]
 pub struct OrderFill {
     pub price: f64,
-    pub units: i64
+    pub units: i64,
+}
