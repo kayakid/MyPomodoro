@@ -170,3 +170,33 @@ impl GAgent {
             } => Some(GearHedger::segment(
                     *price0, *exposure0, *pricen, *exposuren, *scale, *target,
             )),
+            _ => None,
+        }
+    }
+}
+pub trait Agent {
+
+    fn close(&mut self, tick :&Tick) -> i64;
+    // active status
+    fn is_active(&self) -> bool;
+    fn deactivate(&mut self);
+
+    // computes the status of the Agent: should it be closed
+    fn to_be_closed(&self) -> bool;
+
+    // actions to be done if PL is reaching target
+    fn target_action(&mut self) -> i64;
+
+    // target_exposure
+    fn target_exposure(&mut self, tick: &Tick) -> i64;
+
+    // compute the agent exposure if trading this tick
+    fn next_exposure(&mut self, tick: &Tick) -> i64;
+
+    //
+    /*
+    fn next_state<F>(&mut self, tick: &Tick, f: F) -> i64
+    where F: FnMut(&mut Self) -> i64;
+    */
+    // compute the new state after trading occured with a target exposure and Order fill at a price
+    fn update_on_fill(&mut self, order_fill: &OrderFill);
