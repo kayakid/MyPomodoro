@@ -132,3 +132,41 @@ impl GAgent {
                 price0: price0,
                 price1: price1,
                 scale: scale,
+                exposure: exposure,
+            } => Some(GearHedger::buyer(
+                    *price0, *price1, *scale, *scale, *exposure,
+            )),
+            GAgent::Sell {
+                price0: price0,
+                price1: price1,
+                scale: scale,
+                exposure: exposure,
+            } => Some(GearHedger::seller(
+                    *price0, *price1, *scale, *scale, *exposure,
+            )),
+            GAgent::JumpLong {
+                price0: price0,
+                scale: scale,
+                exposure: exposure,
+            } => Some(GearHedger::jump(
+                    *price0, 1.0, 0.0, *scale, *scale, *exposure,
+            )),
+            GAgent::Coastline {
+                direction: direction,
+                price0: price0,
+                scale: scale,
+                size: size,
+                imax: imax,
+            } => Some(GearHedger::coastline(
+                    *direction, *price0, *scale, *size, *imax,
+            )),
+            GAgent::Segment {
+                price0: price0,
+                exposure0: exposure0,
+                pricen: pricen,
+                exposuren: exposuren,
+                scale: scale,
+                target: target,
+            } => Some(GearHedger::segment(
+                    *price0, *exposure0, *pricen, *exposuren, *scale, *target,
+            )),
