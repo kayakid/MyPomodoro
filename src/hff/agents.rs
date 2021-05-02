@@ -103,3 +103,32 @@ impl GAgent {
             } => {
                 let shift = i0.unwrap_or(1.0) * *scale;
                 let zerop = if *direction > 0 { *price + shift} else { *price - shift };
+
+                let high = zerop + imax * scale;
+                let low = zerop - imax * scale;
+
+                let actualTarget = target.unwrap_or(size * scale);
+                let exposure = *size * *imax;
+
+                Some(GearHedger::segment(
+                        low, exposure, high, -exposure, *scale, actualTarget,
+            ))
+            },
+            GAgent::Symmetric {
+                pmid: pmid,
+                span: span,
+                scale: scale,
+                exposure: exposure,
+                target: target,
+            } => Some(GearHedger::symmetric(
+                    *pmid - *span,
+                *pmid + *span,
+                *scale,
+                *scale,
+                *exposure,
+                *target,
+            )),
+            GAgent::Buy {
+                price0: price0,
+                price1: price1,
+                scale: scale,
