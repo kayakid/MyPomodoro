@@ -200,3 +200,38 @@ pub trait Agent {
     */
     // compute the new state after trading occured with a target exposure and Order fill at a price
     fn update_on_fill(&mut self, order_fill: &OrderFill);
+
+    // current exposure of the agent
+    fn exposure(&self) -> i64;
+}
+
+/**
+ A Hedger agent will buy and sell at price levels scale away from previous trade
+ Following an exposure determined by a GearFunction and an exposure limit
+ below preset limits.
+***/
+#[derive(Debug, Deserialize, Serialize, Clone)]
+pub struct GearHedger {
+    // static parameters of the Hedge
+    pub max_exposure: f64,
+    pub gear_f: Gear,
+    // steps on the grid
+    pub scaleUp: f64,
+    pub scaleDown: f64,
+
+    // activation status and PL target
+    pub active: bool,
+    pub target: f64,
+
+    // next trades on the buy and sell sides
+    pub lastTradePrice: f64,
+    pub nextBuyPrice: f64,
+    pub nextSellPrice: f64,
+
+    // PL computer
+    pub agentPL: AgentPL,
+
+    //these fields are used when next exposure is computed before requesting an actual trade on the market
+    pub tentative_price: f64,
+    pub tentative_exposure: i64,
+}
