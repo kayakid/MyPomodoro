@@ -235,3 +235,28 @@ pub struct GearHedger {
     pub tentative_price: f64,
     pub tentative_exposure: i64,
 }
+
+impl GearHedger {
+
+    pub fn buyer(
+        price0: f64,
+        price1: f64,
+        scaleUp: f64,
+        scaleDown: f64,
+        max_exposure: f64,
+    ) -> Self {
+        Self {
+            max_exposure: max_exposure,
+            gear_f: Gear::positive(price0, price1),
+            scaleUp: scaleUp,
+            scaleDown: scaleDown,
+
+            active: true,
+            target: f64::MAX,
+
+            lastTradePrice: price1,
+            nextBuyPrice: price1,
+            nextSellPrice: price1,
+
+            agentPL: AgentPL {
+                exposure: 0,
