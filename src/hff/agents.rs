@@ -344,3 +344,54 @@ impl GearHedger {
             target: target,
 
             lastTradePrice: zero_price,
+            nextBuyPrice: zero_price,
+            nextSellPrice: zero_price,
+
+            agentPL: AgentPL {
+                exposure: 0,
+                price_average: 0.0,
+                cum_profit: 0.0,
+                unrealized_pl: 0.0,
+            },
+            tentative_price: zero_price,
+            tentative_exposure: 0,
+        }
+    }
+    pub fn jump(
+        price0: f64,
+        g_0: f64,
+        g_1: f64,
+        scaleUp: f64,
+        scaleDown: f64,
+        max_exposure: f64,
+    ) -> Self {
+        Self {
+            max_exposure: max_exposure,
+            gear_f: Gear::jump(price0, g_0, g_1),
+            scaleUp: scaleUp,
+            scaleDown: scaleDown,
+
+            active: true,
+            target: f64::MAX,
+
+            lastTradePrice: price0,
+            nextBuyPrice: price0,
+            nextSellPrice: price0,
+
+            agentPL: AgentPL {
+                exposure: 0,
+                price_average: 0.0,
+                cum_profit: 0.0,
+                unrealized_pl: 0.0,
+            },
+            tentative_price: price0,
+            tentative_exposure: 0,
+        }
+    }
+
+    pub fn coastline(direction: i64, price0: f64, scale: f64, size: f64, imax: f64) -> Self {
+        Self {
+            max_exposure: size * imax,
+            gear_f: Gear::coastline(direction, price0, scale, imax),
+            scaleUp: scale,
+            scaleDown: scale,
