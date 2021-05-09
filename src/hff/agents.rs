@@ -288,3 +288,32 @@ impl GearHedger {
             lastTradePrice: price0,
             nextBuyPrice: price0,
             nextSellPrice: price0,
+
+            agentPL: AgentPL {
+                exposure: 0,
+                price_average: 0.0,
+                cum_profit: 0.0,
+                unrealized_pl: 0.0,
+            },
+            tentative_price: price0,
+            tentative_exposure: 0,
+        }
+    }
+
+    pub fn constant(exposure: f64) -> Self {
+        Self {
+            max_exposure: exposure.abs(),
+            gear_f: Gear::constant(exposure as i64),
+            scaleUp: 1.0,
+            scaleDown: 1.0,
+
+            active: true,
+            target: f64::MAX,
+
+            lastTradePrice: 1.0,
+            nextBuyPrice: 1.0,
+            nextSellPrice: 1.0,
+
+            agentPL: AgentPL {
+                exposure: 0,
+                price_average: 0.0,
