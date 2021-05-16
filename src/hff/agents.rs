@@ -433,3 +433,37 @@ impl GearHedger {
             gear_f: Gear::segment(price0, g_0, pricen, g_1),
             scaleUp: scale,
             scaleDown: scale,
+
+            active: true,
+            target: target,
+
+            lastTradePrice: price0,
+            nextBuyPrice: price0,
+            nextSellPrice: price0,
+
+            agentPL: AgentPL {
+                exposure: 0,
+                price_average: 0.0,
+                cum_profit: 0.0,
+                unrealized_pl: 0.0,
+            },
+            tentative_price: price0,
+            tentative_exposure: 0,
+        }
+    }
+}
+
+impl Agent for GearHedger {
+
+    fn close(&mut self, tick :&Tick) -> i64 {
+        // otherwize,we check if we need to adjust exposure
+        if self.agentPL.exposure > 0 {
+            self.tentative_price = tick.bid;
+        } else {
+            self.tentative_price = tick.ask;
+        }
+        self.tentative_exposure = 0;
+        0
+    }
+
+    // is active status
