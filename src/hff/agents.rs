@@ -395,3 +395,41 @@ impl GearHedger {
             gear_f: Gear::coastline(direction, price0, scale, imax),
             scaleUp: scale,
             scaleDown: scale,
+
+            active: true,
+            target: scale * size,
+
+            lastTradePrice: price0,
+            nextBuyPrice: price0,
+            nextSellPrice: price0,
+
+            agentPL: AgentPL {
+                exposure: 0,
+                price_average: 0.0,
+                cum_profit: 0.0,
+                unrealized_pl: 0.0,
+            },
+            tentative_price: price0,
+            tentative_exposure: 0,
+        }
+    }
+    pub fn segment(
+        price0: f64,
+        exposure0: f64,
+        pricen: f64,
+        exposuren: f64,
+        scale: f64,
+        target: f64,
+    ) -> Self {
+        let (g_0, g_1) = if exposure0.abs() > exposuren.abs() {
+            (1.0 * exposure0.signum(), exposuren / exposure0.abs())
+        } else {
+            (exposure0 / exposuren.abs(), 1.0 * exposuren.signum())
+        };
+        let max_exposure = exposure0.abs().max(exposuren.abs());
+
+        Self {
+            max_exposure: max_exposure,
+            gear_f: Gear::segment(price0, g_0, pricen, g_1),
+            scaleUp: scale,
+            scaleDown: scale,
