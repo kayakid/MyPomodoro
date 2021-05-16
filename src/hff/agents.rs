@@ -467,3 +467,43 @@ impl Agent for GearHedger {
     }
 
     // is active status
+    fn is_active(&self) -> bool {
+        self.active
+    }
+    fn deactivate(&mut self) {
+        self.active = false;
+    }
+
+    // at the moment we never close, we need to add a way to add a delegate to decide closing of Agents
+    fn to_be_closed(&self) -> bool {
+        self.agentPL.cum_profit > self.target
+        //false
+    }
+
+    // trivialm as GearHedger have an AgentPL
+    fn exposure(&self) -> i64 {
+        self.agentPL.exposure
+    }
+
+    fn target_action(&mut self) -> i64 {
+        self.tentative_exposure = 0;
+        self.deactivate();
+        return 0;
+    }
+
+    fn target_exposure(&mut self, tick: &Tick) -> i64 {
+        // otherwize,we check if we need to adjust exposure
+        if tick.bid >= self.nextSellPrice {
+            self.tentative_price = tick.bid;
+            self.tentative_exposure = (self.gear_f.g(tick.bid) * self.max_exposure) as i64;
+            //(size * (self.price0 - tick.bid)/self.scale).round() as i64;
+            self.tentative_exposure
+        } else if tick.ask <= self.nextBuyPrice {
+            self.tentative_price = tick.ask;
+            self.tentative_exposure = (self.gear_f.g(tick.ask) * self.max_exposure) as i64;
+            //(self.size as f64 * (self.price0 - tick.ask)/self.scale).round() as i64;
+            self.tentative_exposure
+        } else {
+            self.agentPL.exposure
+        }
+    }
