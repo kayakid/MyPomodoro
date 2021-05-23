@@ -542,3 +542,48 @@ impl Agent for GearHedger {
         let traded = self.tentative_exposure - self.agentPL.exposure;
         if traded < 0 {
             self.agentPL.sell(order_fill.price, traded.abs());
+            self.lastTradePrice = order_fill.price;
+            self.nextSellPrice = order_fill.price + self.scaleUp;
+            self.nextBuyPrice = order_fill.price - self.scaleDown;
+        } else if traded > 0 {
+            self.agentPL.buy(order_fill.price, traded.abs());
+            self.lastTradePrice = order_fill.price;
+            self.nextBuyPrice = order_fill.price - self.scaleDown;
+            self.nextSellPrice = order_fill.price + self.scaleUp;
+        }
+        if self.to_be_closed() {
+            self.deactivate()
+        }
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
+pub struct AgentPL {
+    // exposure: signed position in integral units
+    pub exposure: i64,
+    // average price of position
+    pub price_average: f64,
+    // cumulated profit (Estimated)
+    pub cum_profit: f64,
+    // cumulated profit (Actual)
+    pub unrealized_pl: f64,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct AgentInventory<T: Agent> {
+    pub agents: HashMap<String, T>,
+    pub pl: f64,
+}
+impl<T: Agent> AgentInventory<T> {
+    pub fn new() -> Self {
+        Self {
+            agents: HashMap::new(),
+            pl: 0.0,
+        }
+    }
+    //
+    //    pub fn deactivate(&mut self, key: &String) {
+    //        self.agents.iter_mut().filter(|a| a.0 == key).map(|a| a.1.deactivate());
+    //        ()
+    //    }
+}
