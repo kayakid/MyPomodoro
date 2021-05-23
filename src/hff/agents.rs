@@ -507,3 +507,38 @@ impl Agent for GearHedger {
             self.agentPL.exposure
         }
     }
+
+    // BEWARE THIS IS BASED ON STRONG ASSUPTION
+    // THAT WE ONLY SELL ON PRICE UP
+    // AND BUY ON PRICE DOWN
+    // WHICH IS ECONOMICALLY THE MOST SENSIBLE WAY, BUT...
+    // TODO:
+    // Check if the current tick entails a buy or a sale
+    // set the tentative price and exposure accordingly
+    // We should not have nextSell/nextBuyPrice but nextTradeBelow/nextTradeAbovePrice
+    // We should make user there is NEVER two different trades on bid and ask of a single tick and gear function
+    // thus we only trade if bid and ask entails the same direction of trade (buy or sell) and pick the
+    // right of the two
+    fn next_exposure(&mut self, tick: &Tick) -> i64 {
+        // deal with a profit above target
+        // we will trade to set exposure to zero and deactivate the agent.
+        // TODO : call a closure defining the behaviour of the agent
+        // default would be to deactivate the agent
+        let close_price = if self.exposure() > 0 {
+            tick.bid
+        } else {
+            tick.ask
+        };
+        if self.agentPL.pl_at_price(close_price) > self.target {
+            self.tentative_price = close_price;
+            self.tentative_exposure = 0;
+            let e = self.target_action();
+            return e;
+        }
+        self.target_exposure(tick)
+    }
+
+    fn update_on_fill(&mut self, order_fill: &OrderFill) {
+        let traded = self.tentative_exposure - self.agentPL.exposure;
+        if traded < 0 {
+            self.agentPL.sell(order_fill.price, traded.abs());
