@@ -621,3 +621,31 @@ impl<T: Agent> Agent for AgentInventory<T> {
     fn target_action(&mut self) -> i64 {
         0
     }
+
+    // we do nothing, it only happens on each individual Agent of the inventory
+    fn target_exposure(&mut self, tick: &Tick) -> i64 {
+        0
+    }
+
+
+    fn next_exposure(&mut self, tick: &Tick) -> i64 {
+        let mut exposure = 0;
+        for (_, val) in self.agents.iter_mut().filter(|a| a.1.is_active()) {
+            exposure = exposure + val.next_exposure(tick);
+        }
+        exposure
+    }
+
+    fn update_on_fill(&mut self, order_fill: &OrderFill) {
+        for (_, val) in self.agents.iter_mut().filter(|a| a.1.is_active()) {
+            val.update_on_fill(order_fill);
+        }
+    }
+}
+
+impl AgentPL {
+    // total_profit compute the Process total profit for a given exit price
+    pub fn total_profit(&mut self, x: f64) -> f64 {
+        self.unrealized_pl = (self.exposure as f64) * (x / self.price_average - 1.0);
+        self.unrealized_pl + self.cum_profit
+    }
