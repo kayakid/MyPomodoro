@@ -587,3 +587,37 @@ impl<T: Agent> AgentInventory<T> {
     //        ()
     //    }
 }
+
+impl<T: Agent> Agent for AgentInventory<T> {
+
+    fn close(&mut self, tick :&Tick) -> i64 {
+        for (_, val) in self.agents.iter_mut() {
+            val.close(tick);
+        }
+        0
+    }
+
+    fn is_active(&self) -> bool {
+        true
+    }
+    fn deactivate(&mut self) {
+        for (_, val) in self.agents.iter_mut() {
+            val.deactivate();
+        }
+    }
+
+    fn to_be_closed(&self) -> bool {
+        false
+    }
+
+    fn exposure(&self) -> i64 {
+        self.agents
+            .iter()
+            .filter(|a| a.1.is_active())
+            .fold(0, |a, b| a + b.1.exposure())
+    }
+
+    // we do nothing, it only happens on each individual Agent of the inventory
+    fn target_action(&mut self) -> i64 {
+        0
+    }
