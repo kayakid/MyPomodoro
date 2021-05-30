@@ -649,3 +649,40 @@ impl AgentPL {
         self.unrealized_pl = (self.exposure as f64) * (x / self.price_average - 1.0);
         self.unrealized_pl + self.cum_profit
     }
+
+    pub fn pl_at_price(&self, x: f64) -> f64 {
+        self.cum_profit + (self.exposure as f64) * (x / self.price_average - 1.0)
+    }
+
+    pub fn uPL(&self, x: f64) -> f64 {
+        (self.exposure as f64) * (x / self.price_average - 1.0)
+    }
+
+    // IncreaseBy a number of units (positive on Long exposure, negative on Short exposure)
+    pub fn increase_by(&mut self, x: f64, units: i64) {
+        let de = units;
+        let e = self.exposure + de;
+        let a = (self.price_average * self.exposure.abs() as f64 + x * de.abs() as f64)
+            / e.abs() as f64;
+        self.exposure = e;
+        self.price_average = a;
+        self.unrealized_pl = self.exposure as f64 * (x / self.price_average - 1.0);
+    }
+
+    // DecreaseBy a number of Units (positive on Long exposure, negative on Short exposure)
+    pub fn decrease_by(&mut self, x: f64, units: i64) {
+        let de = units;
+        let e = self.exposure - de;
+        let pi = de as f64 * (x / self.price_average - 1.0);
+
+        self.exposure = e;
+        self.cum_profit += pi;
+        self.unrealized_pl = self.exposure as f64 * (x / self.price_average - 1.0);
+    }
+
+    pub fn buy(&mut self, x: f64, units: i64) {
+        if self.exposure >= 0 {
+            // increase long position
+            self.increase_by(x, units);
+        } else if self.exposure < 0 && units > -self.exposure {
+            // decrease short position
