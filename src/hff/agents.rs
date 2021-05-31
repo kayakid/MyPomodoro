@@ -686,3 +686,44 @@ impl AgentPL {
             self.increase_by(x, units);
         } else if self.exposure < 0 && units > -self.exposure {
             // decrease short position
+            // take the smallest between exposure and sale size
+            let delta = units + self.exposure;
+            self.decrease_by(x, self.exposure);
+            self.increase_by(x, delta);
+        } else if self.exposure < 0 {
+            self.decrease_by(x, -units);
+        }
+    }
+    pub fn sell(&mut self, x: f64, units: i64) {
+        if self.exposure <= 0 {
+            // increase long position
+            self.increase_by(x, -units);
+        } else if self.exposure > 0 && units > self.exposure {
+            // decrease short position
+            // take the smallest between exposure and sale size
+            let delta = units - self.exposure;
+            self.decrease_by(x, self.exposure);
+            self.increase_by(x, -delta);
+        } else if self.exposure > 0 {
+            self.decrease_by(x, units);
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::super::account::OrderFill;
+    use super::super::quote::Tick;
+    use super::GAgent;
+    use super::{Agent, GearHedger};
+
+    #[test]
+    fn exploration() {
+        assert_eq!(2 + 2, 4);
+    }
+
+    #[test]
+    fn symetric() {
+        let mut gear = GearHedger::symmetric(0.80, 1.20, 0.0010, 0.0010, 100000.0, 100000.0);
+
+        gear.next_exposure(&Tick {
