@@ -727,3 +727,40 @@ mod tests {
         let mut gear = GearHedger::symmetric(0.80, 1.20, 0.0010, 0.0010, 100000.0, 100000.0);
 
         gear.next_exposure(&Tick {
+            time: 0,
+            bid: 0.7000,
+            ask: 0.7001,
+        });
+        gear.update_on_fill(&OrderFill {
+            price: gear.tentative_price,
+            units: gear.tentative_exposure,
+        });
+        assert_eq!(gear.exposure(), gear.max_exposure as i64);
+
+        gear.next_exposure(&Tick {
+            time: 0,
+            bid: 1.0000,
+            ask: 1.0000,
+        });
+        gear.update_on_fill(&OrderFill {
+            price: gear.tentative_price,
+            units: gear.tentative_exposure,
+        });
+        assert_eq!(gear.exposure(), 0);
+
+        gear.next_exposure(&Tick {
+            time: 0,
+            bid: 1.2000,
+            ask: 1.2000,
+        });
+        gear.update_on_fill(&OrderFill {
+            price: gear.tentative_price,
+            units: gear.tentative_exposure,
+        });
+        assert_eq!(gear.exposure(), -gear.max_exposure as i64);
+    }
+
+    #[test]
+    fn target() {
+        let mut agent = GAgent::Segment {
+            price0: 1.0010,
