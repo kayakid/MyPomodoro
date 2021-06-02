@@ -764,3 +764,40 @@ mod tests {
     fn target() {
         let mut agent = GAgent::Segment {
             price0: 1.0010,
+            exposure0: 100000.0,
+            pricen: 1.0210,
+            exposuren: -100000.0,
+            scale: 0.0010,
+            target: 10.0,
+        }
+        .build()
+        .unwrap();
+        let tick_0 = Tick {
+            time: 0,
+            bid: 1.0100,
+            ask: 1.0100,
+        };
+        agent.next_exposure(&tick_0);
+        let orderFill_0 = OrderFill {
+            price: agent.tentative_price,
+            units: agent.tentative_exposure,
+        };
+        agent.update_on_fill(&orderFill_0);
+
+        let tick_1 = Tick {
+            time: 0,
+            bid: 1.0120,
+            ask: 1.0120,
+        };
+        agent.next_exposure(&tick_1);
+        let orderFill_1 = OrderFill {
+            price: agent.tentative_price,
+            units: agent.tentative_exposure,
+        };
+        agent.update_on_fill(&orderFill_1);
+
+        println!("{:?}", agent);
+       // assert_eq!(agent.agentPL.cum_profit, 0.0);
+       // assert_eq!(agent.exposure(), 10000);
+    }
+}
