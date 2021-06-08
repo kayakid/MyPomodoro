@@ -4,4 +4,4 @@ use super::agents::{GearHedger,Agent, GAgent};
 use super::account::OrderFill;
 use super::quote::Tick;
 
-#[derive(Debug
+#[derive(Debug, Deserialize, Serialize, Clone)]
