@@ -5,3 +5,5 @@ use super::account::OrderFill;
 use super::quote::Tick;
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
+pub struct GBiAgent {
+    pub price:
