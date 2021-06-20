@@ -8,4 +8,6 @@ use super::quote::Tick;
 pub struct GBiAgent {
     pub price: f64,
     pub span: f64,
-    pub scale
+    pub scale: f64,
+    pub exposure: f64,
+    p
