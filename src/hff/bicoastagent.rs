@@ -6,4 +6,6 @@ use super::quote::Tick;
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct GBiAgent {
-    pub price:
+    pub price: f64,
+    pub span: f64,
+    pub scale
