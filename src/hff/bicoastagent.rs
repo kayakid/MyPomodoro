@@ -14,4 +14,4 @@ pub struct GBiAgent {
 }
 
 impl GBiAgent {
-    pub 
+    pub fn build(&self) -> BiCoastAgen
