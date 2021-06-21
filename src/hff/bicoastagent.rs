@@ -10,4 +10,8 @@ pub struct GBiAgent {
     pub span: f64,
     pub scale: f64,
     pub exposure: f64,
-    p
+    pub target: f64
+}
+
+impl GBiAgent {
+    pub 
