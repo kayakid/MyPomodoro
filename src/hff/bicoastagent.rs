@@ -14,4 +14,5 @@ pub struct GBiAgent {
 }
 
 impl GBiAgent {
-    pub fn build(&self) -> BiCoastAgen
+    pub fn build(&self) -> BiCoastAgent {
+        BiCoastAgent::new(self.price,
