@@ -20,4 +20,4 @@ impl GBiAgent {
 }
 
 /*
-BiCoastAgent is a symm
+BiCoastAgent is a symmetric GearHedger with specificati
