@@ -15,4 +15,9 @@ pub struct GBiAgent {
 
 impl GBiAgent {
     pub fn build(&self) -> BiCoastAgent {
-        BiCoastAgent::new(self.price, self.span, self.scale, self.exposure, self.targ
+        BiCoastAgent::new(self.price, self.span, self.scale, self.exposure, self.target)
+    }
+}
+
+/*
+BiCoastAgent is a symm
