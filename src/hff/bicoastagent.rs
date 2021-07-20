@@ -21,4 +21,4 @@ impl GBiAgent {
 
 /*
 BiCoastAgent is a symmetric GearHedger with specifications such that:
-- an epoch_targe
+- an epoch_target is set as the profit target b
