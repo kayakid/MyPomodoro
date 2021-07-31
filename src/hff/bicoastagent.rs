@@ -26,4 +26,4 @@ BiCoastAgent is a symmetric GearHedger with specifications such that:
 we add the epoch target to the previous target, and the mid price becomes the current price.
 
 */
-#[
+#[derive(Debug,Deserialize,Seri
