@@ -28,4 +28,5 @@ we add the epoch target to the previous target, and the mid price becomes the cu
 */
 #[derive(Debug,Deserialize,Serialize, Clone)]
 pub struct BiCoastAgent {
- 
+    epoch_target: f64,
+    gear_h
