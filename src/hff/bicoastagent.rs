@@ -33,4 +33,7 @@ pub struct BiCoastAgent {
 
 }
 
-impl BiCo
+impl BiCoastAgent {
+
+    // constructor
+    pub
