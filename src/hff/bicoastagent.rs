@@ -23,4 +23,7 @@ impl GBiAgent {
 BiCoastAgent is a symmetric GearHedger with specifications such that:
 - an epoch_target is set as the profit target before we recalibrate the mid price
 - when the current tick leads to a cumulative profit + unrealized PL larger than the target,
-we add the epoch target to the previous target, and the mid price become
+we add the epoch target to the previous target, and the mid price becomes the current price.
+
+*/
+#[
