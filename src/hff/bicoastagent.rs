@@ -36,4 +36,4 @@ pub struct BiCoastAgent {
 impl BiCoastAgent {
 
     // constructor
-    pub
+    pub fn new(price: f64, span: f64, scale: f64, 
