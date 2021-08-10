@@ -36,4 +36,5 @@ pub struct BiCoastAgent {
 impl BiCoastAgent {
 
     // constructor
-    pub fn new(price: f64, span: f64, scale: f64, exposure: f64, target: f64) -> S
+    pub fn new(price: f64, span: f64, scale: f64, exposure: f64, target: f64) -> Self {
+        let mut ret = Se
