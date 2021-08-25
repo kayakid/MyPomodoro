@@ -38,4 +38,5 @@ impl BiCoastAgent {
     // constructor
     pub fn new(price: f64, span: f64, scale: f64, exposure: f64, target: f64) -> Self {
         let mut ret = Self {
-            epoch_target: s
+            epoch_target: scale * exposure / span,
+        
