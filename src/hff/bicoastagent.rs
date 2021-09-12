@@ -39,4 +39,6 @@ impl BiCoastAgent {
     pub fn new(price: f64, span: f64, scale: f64, exposure: f64, target: f64) -> Self {
         let mut ret = Self {
             epoch_target: scale * exposure / span,
-            gear_hedger: GAgent::Symmetric{pmid: price, span: span, scale: scale, exposure: exposure, target: target}.build
+            gear_hedger: GAgent::Symmetric{pmid: price, span: span, scale: scale, exposure: exposure, target: target}.build().unwrap(),
+        };
+        ret.epoc
