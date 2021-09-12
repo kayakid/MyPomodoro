@@ -41,4 +41,5 @@ impl BiCoastAgent {
             epoch_target: scale * exposure / span,
             gear_hedger: GAgent::Symmetric{pmid: price, span: span, scale: scale, exposure: exposure, target: target}.build().unwrap(),
         };
-        ret.epoc
+        ret.epoch_target = target;
+        ret.g
