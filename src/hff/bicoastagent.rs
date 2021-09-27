@@ -43,4 +43,8 @@ impl BiCoastAgent {
         };
         ret.epoch_target = target;
         ret.gear_hedger.target = target;
- 
+        ret
+    }
+
+
+    fn mid_price
