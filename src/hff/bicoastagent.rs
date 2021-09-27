@@ -47,4 +47,5 @@ impl BiCoastAgent {
     }
 
 
-    fn mid_price
+    fn mid_price(&self) -> f64 {
+        (self.gear_he
