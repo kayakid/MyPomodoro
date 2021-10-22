@@ -48,4 +48,7 @@ impl BiCoastAgent {
 
 
     fn mid_price(&self) -> f64 {
-        (self.gear_hedger.gear_f.p_0 + self.gear_hed
+        (self.gear_hedger.gear_f.p_0 + self.gear_hedger.gear_f.p_n)/2.0
+    }
+
+    fn 
