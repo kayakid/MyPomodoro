@@ -51,4 +51,4 @@ impl BiCoastAgent {
         (self.gear_hedger.gear_f.p_0 + self.gear_hedger.gear_f.p_n)/2.0
     }
 
-    fn 
+    fn shift_mid_to_price(&mut sel
