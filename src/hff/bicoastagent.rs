@@ -52,4 +52,4 @@ impl BiCoastAgent {
     }
 
     fn shift_mid_to_price(&mut self, price: f64) {
-        let span = (
+        let span = (self.gear_hedger.gear_f.p
