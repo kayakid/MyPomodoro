@@ -56,4 +56,5 @@ impl BiCoastAgent {
         self.gear_hedger.gear_f =  GAgent::Symmetric{
             pmid: price,
             span: span,
-            s
+            scale: self.gear_hedger.scaleUp,
+   
