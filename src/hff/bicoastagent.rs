@@ -57,4 +57,5 @@ impl BiCoastAgent {
             pmid: price,
             span: span,
             scale: self.gear_hedger.scaleUp,
-            exposure: self.gear_hedger.max
+            exposure: self.gear_hedger.max_exposure,
+            target: self.gear_hedger.ta
