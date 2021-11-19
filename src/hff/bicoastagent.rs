@@ -54,4 +54,6 @@ impl BiCoastAgent {
     fn shift_mid_to_price(&mut self, price: f64) {
         let span = (self.gear_hedger.gear_f.p_n - self.gear_hedger.gear_f.p_0)/2.0;
         self.gear_hedger.gear_f =  GAgent::Symmetric{
-            pmid: pric
+            pmid: price,
+            span: span,
+            s
