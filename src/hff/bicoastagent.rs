@@ -62,4 +62,8 @@ impl BiCoastAgent {
     }
 
     pub fn pl(&self) -> f64 {
-        self.gear_hedger.agentPL.cu
+        self.gear_hedger.agentPL.cum_profit
+    }
+}
+
+impl Agent 
