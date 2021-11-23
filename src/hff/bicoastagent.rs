@@ -58,4 +58,7 @@ impl BiCoastAgent {
             span: span,
             scale: self.gear_hedger.scaleUp,
             exposure: self.gear_hedger.max_exposure,
-            target: self.gear_hedger.target}.build().unwrap().gear_f
+            target: self.gear_hedger.target}.build().unwrap().gear_f;
+    }
+
+    pub fn pl(&self) -> f64 {
