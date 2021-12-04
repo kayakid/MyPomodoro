@@ -66,4 +66,6 @@ impl BiCoastAgent {
     }
 }
 
-impl Agent 
+impl Agent for BiCoastAgent {
+
+    // NOT IMPL
