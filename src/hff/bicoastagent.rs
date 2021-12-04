@@ -69,4 +69,5 @@ impl BiCoastAgent {
 impl Agent for BiCoastAgent {
 
     // NOT IMPLEMENTED!
-    fn close(&mut self, t
+    fn close(&mut self, tick :&Tick) -> i64 {
+    
