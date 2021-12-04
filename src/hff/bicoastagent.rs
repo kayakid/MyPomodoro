@@ -68,4 +68,5 @@ impl BiCoastAgent {
 
 impl Agent for BiCoastAgent {
 
-    // NOT IMPL
+    // NOT IMPLEMENTED!
+    fn close(&mut self, t
