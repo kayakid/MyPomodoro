@@ -70,4 +70,4 @@ impl Agent for BiCoastAgent {
 
     // NOT IMPLEMENTED!
     fn close(&mut self, tick :&Tick) -> i64 {
-    
+        // otherwize,we check if
