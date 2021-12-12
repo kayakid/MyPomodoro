@@ -73,4 +73,6 @@ impl Agent for BiCoastAgent {
         // otherwize,we check if we need to adjust exposure
 
         0
-  
+    }
+
+    fn is_active(&self) -> boo
