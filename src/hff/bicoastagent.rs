@@ -75,4 +75,7 @@ impl Agent for BiCoastAgent {
         0
     }
 
-    fn is_active(&self) -> boo
+    fn is_active(&self) -> bool {
+        true
+    }
+    fn deactivat
