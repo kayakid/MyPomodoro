@@ -82,4 +82,4 @@ impl Agent for BiCoastAgent {
 
     }
 
-   
+    // computes the status of t
