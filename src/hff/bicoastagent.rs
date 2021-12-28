@@ -84,4 +84,7 @@ impl Agent for BiCoastAgent {
 
     // computes the status of the Agent: should it be closed
     fn to_be_closed(&self) -> bool {
-   
+        false
+    }
+
+    // specific 
