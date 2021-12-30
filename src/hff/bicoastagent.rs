@@ -87,4 +87,5 @@ impl Agent for BiCoastAgent {
         false
     }
 
-    // specific to the bicoast agent if we reach the 
+    // specific to the bicoast agent if we reach the target
+    fn target_action(&mut
