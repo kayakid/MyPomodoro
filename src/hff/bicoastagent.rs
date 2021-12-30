@@ -89,4 +89,5 @@ impl Agent for BiCoastAgent {
 
     // specific to the bicoast agent if we reach the target
     fn target_action(&mut self) -> i64 {
-        let
+        let price = self.gear_hedger.tentative_price;
+ 
