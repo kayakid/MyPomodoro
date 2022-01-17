@@ -91,4 +91,5 @@ impl Agent for BiCoastAgent {
     fn target_action(&mut self) -> i64 {
         let price = self.gear_hedger.tentative_price;
         self.gear_hedger.target = self.gear_hedger.agentPL.pl_at_price(price) + self.epoch_target;
-        self.shif
+        self.shift_mid_to_price(price);
+        ret
