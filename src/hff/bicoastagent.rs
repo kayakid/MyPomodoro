@@ -92,4 +92,7 @@ impl Agent for BiCoastAgent {
         let price = self.gear_hedger.tentative_price;
         self.gear_hedger.target = self.gear_hedger.agentPL.pl_at_price(price) + self.epoch_target;
         self.shift_mid_to_price(price);
-        ret
+        return 0;
+    }
+
+    fn target_exposure(&mut 
