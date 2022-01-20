@@ -95,4 +95,5 @@ impl Agent for BiCoastAgent {
         return 0;
     }
 
-    fn target_exposure(&mut 
+    fn target_exposure(&mut self, tick: &Tick) -> i64 {
+       
