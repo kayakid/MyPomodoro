@@ -96,4 +96,7 @@ impl Agent for BiCoastAgent {
     }
 
     fn target_exposure(&mut self, tick: &Tick) -> i64 {
-        self.gear_hedger.target
+        self.gear_hedger.target_exposure(tick)
+    }
+
+    //
