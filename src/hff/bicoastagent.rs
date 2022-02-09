@@ -99,4 +99,5 @@ impl Agent for BiCoastAgent {
         self.gear_hedger.target_exposure(tick)
     }
 
-    // compute the agent expos
+    // compute the agent exposure if trading this tick
+    fn nex
