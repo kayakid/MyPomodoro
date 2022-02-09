@@ -100,4 +100,4 @@ impl Agent for BiCoastAgent {
     }
 
     // compute the agent exposure if trading this tick
-    fn nex
+    fn next_exposure(&mut self, tic
