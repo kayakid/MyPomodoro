@@ -99,4 +99,4 @@ impl Agent for BiCoastAgent {
         self.gear_hedger.target_exposure(tick)
     }
 
-    //
+    // compute the agent expos
