@@ -101,4 +101,4 @@ impl Agent for BiCoastAgent {
 
     // compute the agent exposure if trading this tick
     fn next_exposure(&mut self, tick: &Tick) -> i64 {
-        let clos
+        let close_price = if self.exposure() > 0
