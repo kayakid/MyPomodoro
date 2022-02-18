@@ -102,4 +102,4 @@ impl Agent for BiCoastAgent {
     // compute the agent exposure if trading this tick
     fn next_exposure(&mut self, tick: &Tick) -> i64 {
         let close_price = if self.exposure() > 0 { tick.bid } else { tick.ask };
-        if self.gea
+        if self.gear_hedger.agentPL.pl_at_price(close_pr
