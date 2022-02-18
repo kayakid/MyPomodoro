@@ -103,4 +103,5 @@ impl Agent for BiCoastAgent {
     fn next_exposure(&mut self, tick: &Tick) -> i64 {
         let close_price = if self.exposure() > 0 { tick.bid } else { tick.ask };
         if self.gear_hedger.agentPL.pl_at_price(close_price) > self.gear_hedger.target {
-            self.gear_hedger.tentative_price =
+            self.gear_hedger.tentative_price = close_price;
+            s
