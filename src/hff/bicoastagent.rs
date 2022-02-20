@@ -105,4 +105,6 @@ impl Agent for BiCoastAgent {
         if self.gear_hedger.agentPL.pl_at_price(close_price) > self.gear_hedger.target {
             self.gear_hedger.tentative_price = close_price;
             self.gear_hedger.tentative_exposure = 0;
-            let e = self.target_ac
+            let e = self.target_action();
+            return e;
+       
