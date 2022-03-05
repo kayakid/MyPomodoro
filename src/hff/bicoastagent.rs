@@ -107,4 +107,6 @@ impl Agent for BiCoastAgent {
             self.gear_hedger.tentative_exposure = 0;
             let e = self.target_action();
             return e;
-       
+        }
+        self.target_exposure(tick)
+    
