@@ -113,4 +113,4 @@ impl Agent for BiCoastAgent {
 
 
 
-    // compute the new state after trading occured with a target
+    // compute the new state after trading occured with a target exposure and Order fill at a pr
