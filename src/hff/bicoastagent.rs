@@ -109,4 +109,8 @@ impl Agent for BiCoastAgent {
             return e;
         }
         self.target_exposure(tick)
-    
+    }
+
+
+
+    // compute the new st
