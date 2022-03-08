@@ -113,4 +113,4 @@ impl Agent for BiCoastAgent {
 
 
 
-    // compute the new st
+    // compute the new state after trading occured with a target
