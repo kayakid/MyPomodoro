@@ -113,4 +113,5 @@ impl Agent for BiCoastAgent {
 
 
 
-    // compute the new state after trading occured with a target exposure and Order fill at a pr
+    // compute the new state after trading occured with a target exposure and Order fill at a price
+    fn update_on_fill(
