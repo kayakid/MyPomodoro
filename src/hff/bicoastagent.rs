@@ -118,4 +118,5 @@ impl Agent for BiCoastAgent {
         self.gear_hedger.update_on_fill(order_fill)
     }
 
-    // current exposure of the agen
+    // current exposure of the agent
+    fn exposure(&self) ->
