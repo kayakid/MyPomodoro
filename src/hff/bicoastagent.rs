@@ -127,4 +127,5 @@ impl Agent for BiCoastAgent {
 
 
 #[cfg(test)]
-mod 
+mod tests {
+    use super::super
