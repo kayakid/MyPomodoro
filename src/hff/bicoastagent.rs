@@ -128,4 +128,5 @@ impl Agent for BiCoastAgent {
 
 #[cfg(test)]
 mod tests {
-    use super::super
+    use super::super::account::OrderFill;
+    
