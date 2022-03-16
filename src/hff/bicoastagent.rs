@@ -120,4 +120,11 @@ impl Agent for BiCoastAgent {
 
     // current exposure of the agent
     fn exposure(&self) -> i64 {
-        self.gear_hedger.ex
+        self.gear_hedger.exposure()
+    }
+}
+
+
+
+#[cfg(test)]
+mod 
