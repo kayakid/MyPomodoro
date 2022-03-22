@@ -132,4 +132,7 @@ mod tests {
     use super::super::quote::Tick;
     use super::GAgent;
     use super::{Agent, GearHedger};
-    use super::BiCoa
+    use super::BiCoastAgent;
+
+    #[test]
+    fn long_play() 
