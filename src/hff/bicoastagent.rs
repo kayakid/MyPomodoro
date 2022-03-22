@@ -131,4 +131,5 @@ mod tests {
     use super::super::account::OrderFill;
     use super::super::quote::Tick;
     use super::GAgent;
-    use super::{Agent
+    use super::{Agent, GearHedger};
+    use super::BiCoa
