@@ -130,4 +130,5 @@ impl Agent for BiCoastAgent {
 mod tests {
     use super::super::account::OrderFill;
     use super::super::quote::Tick;
-    use super
+    use super::GAgent;
+    use super::{Agent
