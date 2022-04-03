@@ -135,4 +135,6 @@ mod tests {
     use super::BiCoastAgent;
 
     #[test]
-    fn long_play() 
+    fn long_play() {
+
+        let mut agent = BiCoastAgent::n
