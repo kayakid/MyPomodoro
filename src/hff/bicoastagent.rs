@@ -148,4 +148,5 @@ mod tests {
             price: agent.gear_hedger.tentative_price,
             units: agent.gear_hedger.tentative_exposure - agent.exposure(),
         });
-        assert_eq!(age
+        assert_eq!(agent.exposure(), 9999);
+  
