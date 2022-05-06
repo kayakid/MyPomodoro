@@ -156,3 +156,5 @@ mod tests {
             time: 0,
             bid: 0.9980,
             ask: 0.9980,
+        });
+        agent.update_on_fill
