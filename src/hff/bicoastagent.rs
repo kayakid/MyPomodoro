@@ -158,4 +158,5 @@ mod tests {
             ask: 0.9980,
         });
         agent.update_on_fill(&OrderFill {
-            price: ag
+            price: agent.gear_hedger.tentative_price,
+     
