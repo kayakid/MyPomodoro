@@ -157,4 +157,5 @@ mod tests {
             bid: 0.9980,
             ask: 0.9980,
         });
-        agent.update_on_fill
+        agent.update_on_fill(&OrderFill {
+            price: ag
