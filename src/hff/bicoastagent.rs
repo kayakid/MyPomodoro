@@ -159,4 +159,5 @@ mod tests {
         });
         agent.update_on_fill(&OrderFill {
             price: agent.gear_hedger.tentative_price,
-            units: agent.gear_hedger.tentativ
+            units: agent.gear_hedger.tentative_exposure - agent.exposure(),
+        }
