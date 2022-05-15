@@ -163,4 +163,4 @@ mod tests {
         });
         assert_eq!(agent.gear_hedger.nextSellPrice, 0.9990);
         assert_eq!(agent.exposure(), 19999);
-   
+        assert_eq!(agent.gear_hedger
