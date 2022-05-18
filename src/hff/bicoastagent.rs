@@ -167,4 +167,5 @@ mod tests {
 
         agent.next_exposure(&Tick {
             time: 0,
-            b
+            bid: 0.9970,
+            
