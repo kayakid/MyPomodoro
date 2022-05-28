@@ -175,4 +175,5 @@ mod tests {
             units: agent.gear_hedger.tentative_exposure - agent.exposure(),
         });
 
-    
+        agent.next_exposure(&Tick {
+      
