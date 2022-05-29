@@ -179,4 +179,5 @@ mod tests {
             time: 0,
             bid: 0.9990,
             ask: 0.9990,
-     
+        });
+        assert_eq!(agent.gea
