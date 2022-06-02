@@ -181,4 +181,5 @@ mod tests {
             ask: 0.9990,
         });
         assert_eq!(agent.gear_hedger.tentative_exposure - agent.exposure(), - agent.exposure());
-        agent.update_on_fill
+        agent.update_on_fill(&OrderFill {
+            
