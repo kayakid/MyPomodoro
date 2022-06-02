@@ -180,4 +180,4 @@ mod tests {
             bid: 0.9990,
             ask: 0.9990,
         });
-        assert_eq!(agent.gear_hedger.tentative_exposure -
+        assert_eq!(agent.gear_hedger.tentative_exposure - agent.exposure(), - agent.exposure())
