@@ -182,4 +182,5 @@ mod tests {
         });
         assert_eq!(agent.gear_hedger.tentative_exposure - agent.exposure(), - agent.exposure());
         agent.update_on_fill(&OrderFill {
-            price: agent.gear_hedger.tentati
+            price: agent.gear_hedger.tentative_price,
+            units: age
