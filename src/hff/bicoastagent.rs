@@ -189,4 +189,4 @@ mod tests {
         assert_eq!( (agent.mid_price() - 0.9990).abs() < 0.00001, true);
         // assert_eq!(agent.gear_hedger.target, 10.0);
 
-       
+       // assert_eq!(agent.gear_hed
