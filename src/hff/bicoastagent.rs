@@ -193,4 +193,8 @@ mod tests {
 
         assert_eq!(agent.gear_hedger.nextSellPrice, 1.000);
         assert_eq!(agent.gear_hedger.gear_f.p_0, 0.9890);
-  
+    }
+
+
+    #[test]
+    fn short_pla
