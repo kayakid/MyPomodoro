@@ -197,4 +197,6 @@ mod tests {
 
 
     #[test]
-    fn short_pla
+    fn short_play() {
+
+        let mut agent = BiCoast
