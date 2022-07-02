@@ -199,4 +199,6 @@ mod tests {
     #[test]
     fn short_play() {
 
-        let mut agent = BiCoastAgent::new(1.0000, 0.0100, 0.0010, 100000
+        let mut agent = BiCoastAgent::new(1.0000, 0.0100, 0.0010, 100000.0, 5.0);
+
+        agent.next_expo
