@@ -202,4 +202,6 @@ mod tests {
         let mut agent = BiCoastAgent::new(1.0000, 0.0100, 0.0010, 100000.0, 5.0);
 
         agent.next_exposure(&Tick {
-            time: 0
+            time: 0,
+            bid: 1.0010,
+        
