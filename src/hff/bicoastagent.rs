@@ -207,4 +207,4 @@ mod tests {
             ask: 1.0010,
         });
         agent.update_on_fill(&OrderFill {
-        
+            price: agent.gear_hedger.tentat
