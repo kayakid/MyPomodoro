@@ -211,4 +211,7 @@ mod tests {
             units: agent.gear_hedger.tentative_exposure - agent.exposure(),
         });
         assert_eq!(agent.exposure(), -9999);
-        assert_eq!(
+        assert_eq!(agent.gear_hedger.gear_f.p_0, 0.99);
+
+
+    
