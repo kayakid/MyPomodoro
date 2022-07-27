@@ -217,4 +217,6 @@ mod tests {
         agent.next_exposure(&Tick {
             time: 0,
             bid: 1.0020,
-            ask: 1.0
+            ask: 1.0020,
+        });
+        age
