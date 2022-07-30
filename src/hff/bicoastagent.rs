@@ -219,4 +219,5 @@ mod tests {
             bid: 1.0020,
             ask: 1.0020,
         });
-        age
+        agent.update_on_fill(&OrderFill {
+   
