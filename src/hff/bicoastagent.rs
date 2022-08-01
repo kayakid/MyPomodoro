@@ -220,4 +220,5 @@ mod tests {
             ask: 1.0020,
         });
         agent.update_on_fill(&OrderFill {
-            price: agent.gear_hedger.ten
+            price: agent.gear_hedger.tentative_price,
+            units
