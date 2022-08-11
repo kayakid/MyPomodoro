@@ -224,4 +224,5 @@ mod tests {
             units: agent.gear_hedger.tentative_exposure - agent.exposure(),
         });
         assert_eq!(agent.gear_hedger.nextSellPrice, 1.0030);
-        assert_eq!
+        assert_eq!(agent.exposure(), -19999);
+      
