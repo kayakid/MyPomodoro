@@ -227,4 +227,5 @@ mod tests {
         assert_eq!(agent.exposure(), -19999);
         assert_eq!(agent.gear_hedger.gear_f.p_0, 0.99);
 
-        a
+        agent.next_exposure(&Tick {
+     
