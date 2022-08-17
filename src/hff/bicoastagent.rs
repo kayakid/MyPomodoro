@@ -232,4 +232,5 @@ mod tests {
             bid: 1.0030,
             ask: 1.0030,
         });
-    
+        agent.update_on_fill(&OrderFill {
+ 
