@@ -249,4 +249,6 @@ mod tests {
         });
         assert_eq!( (agent.gear_hedger.nextSellPrice - 1.0020).abs() < 0.00001, true);
         assert_eq!( (agent.mid_price() - 1.0010).abs() < 0.00001, true);
-        // assert_eq!(agent.gear_he
+        // assert_eq!(agent.gear_hedger.target, 10.0);
+
+     // assert_
