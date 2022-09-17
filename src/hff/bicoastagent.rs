@@ -251,4 +251,6 @@ mod tests {
         assert_eq!( (agent.mid_price() - 1.0010).abs() < 0.00001, true);
         // assert_eq!(agent.gear_hedger.target, 10.0);
 
-     // assert_eq!(agent.gear_hedger.agentPL.c
+     // assert_eq!(agent.gear_hedger.agentPL.cum_profit, 0.99);
+
+        assert_eq!( (
