@@ -253,4 +253,4 @@ mod tests {
 
      // assert_eq!(agent.gear_hedger.agentPL.cum_profit, 0.99);
 
-        assert_eq!( (
+        assert_eq!( (agent.gear_hedger.nextSellPr
