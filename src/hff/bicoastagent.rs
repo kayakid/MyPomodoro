@@ -255,4 +255,5 @@ mod tests {
 
         assert_eq!( (agent.gear_hedger.nextSellPrice- 1.0020).abs() < 0.00001, true);
         assert_eq!( (agent.gear_hedger.gear_f.p_0 - 0.9910).abs() < 0.00001, true);
-  
+    }
+}
