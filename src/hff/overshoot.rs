@@ -1,3 +1,4 @@
 use serde::{Serialize,Deserialize};
 
-// classes from the spe
+// classes from the spectrum service
+#[derive(Deserialize, Deb
