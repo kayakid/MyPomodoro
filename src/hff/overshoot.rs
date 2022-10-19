@@ -1,4 +1,6 @@
 use serde::{Serialize,Deserialize};
 
 // classes from the spectrum service
-#[derive(Deserialize, Deb
+#[derive(Deserialize, Debug)]
+pub struct os {
+    pub instrument: S
