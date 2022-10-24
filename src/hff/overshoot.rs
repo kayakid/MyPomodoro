@@ -11,4 +11,6 @@ pub struct os {
     pub current: f64,
 }
 
-#[derive(Deserialize, D
+#[derive(Deserialize, Debug)]
+pub struct sp {
+    
