@@ -8,4 +8,7 @@ pub struct os {
     pub direction: i64,
     pub start: f64,
     pub peak: f64,
-    pu
+    pub current: f64,
+}
+
+#[derive(Deserialize, D
