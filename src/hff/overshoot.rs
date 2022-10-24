@@ -13,4 +13,5 @@ pub struct os {
 
 #[derive(Deserialize, Debug)]
 pub struct sp {
-    
+    pub scales: Vec<f64>,
+    pub ove
