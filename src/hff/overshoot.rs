@@ -18,4 +18,5 @@ pub struct sp {
 }
 
 impl sp {
-    pu
+    pub fn to_spectrum(&self) -> Spectrum {
+  
