@@ -21,4 +21,4 @@ impl sp {
     pub fn to_spectrum(&self) -> Spectrum {
         Spectrum {
             overshoots: self.overshoots.iter().map(|o| (o.scale, Overshoot{
-  
+                scale: o.scale,
