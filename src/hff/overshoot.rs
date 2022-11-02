@@ -22,4 +22,5 @@ impl sp {
         Spectrum {
             overshoots: self.overshoots.iter().map(|o| (o.scale, Overshoot{
                 scale: o.scale,
-                direction: o.direct
+                direction: o.direction,
+                start: o
