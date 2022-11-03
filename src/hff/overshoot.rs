@@ -36,4 +36,5 @@ pub struct SpectrumClient {
     client: reqwest::Client,
 }
 
-impl SpectrumClie
+impl SpectrumClient {
+    pub fn new(url: String) -> 
