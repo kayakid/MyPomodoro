@@ -32,3 +32,5 @@ impl sp {
 }
 
 pub struct SpectrumClient {
+    url: String,
+    client: 
