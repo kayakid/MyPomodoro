@@ -24,4 +24,5 @@ impl sp {
                 scale: o.scale,
                 direction: o.direction,
                 start: o.start,
-                peak: 
+                peak: o.peak,
+                current: o.current
