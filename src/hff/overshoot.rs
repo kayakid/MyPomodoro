@@ -28,4 +28,7 @@ impl sp {
                 current: o.current,
             })).collect(),
         }
- 
+    }
+}
+
+pub struct SpectrumClient {
