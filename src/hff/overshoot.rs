@@ -33,4 +33,7 @@ impl sp {
 
 pub struct SpectrumClient {
     url: String,
-    client: 
+    client: reqwest::Client,
+}
+
+impl SpectrumClie
