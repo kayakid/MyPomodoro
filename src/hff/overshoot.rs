@@ -23,4 +23,5 @@ impl sp {
             overshoots: self.overshoots.iter().map(|o| (o.scale, Overshoot{
                 scale: o.scale,
                 direction: o.direction,
-                start: o
+                start: o.start,
+                peak: 
