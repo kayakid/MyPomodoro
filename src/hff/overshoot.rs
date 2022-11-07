@@ -46,4 +46,4 @@ impl SpectrumClient {
     }
 
 
-    pub a
+    pub async fn get(&self) -> 
