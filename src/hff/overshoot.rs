@@ -46,4 +46,5 @@ impl SpectrumClient {
     }
 
 
-    pub async fn get(&self) -> 
+    pub async fn get(&self) -> Option<sp> {
+        let request_ur
