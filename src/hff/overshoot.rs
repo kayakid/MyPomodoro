@@ -47,4 +47,4 @@ impl SpectrumClient {
 
 
     pub async fn get(&self) -> Option<sp> {
-        let request_ur
+        let request_url = format!("{}",self.url.clo
