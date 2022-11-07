@@ -41,4 +41,9 @@ impl SpectrumClient {
         let ret = SpectrumClient {
             url: url,
             client: reqwest::Client::new(),
-        }
+        };
+        ret
+    }
+
+
+    pub a
