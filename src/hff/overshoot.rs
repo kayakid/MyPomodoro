@@ -49,4 +49,4 @@ impl SpectrumClient {
     pub async fn get(&self) -> Option<sp> {
         let request_url = format!("{}",self.url.clone());
 
-        let response
+        let response: Result<reqwest::Response, reqwe
