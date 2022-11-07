@@ -37,4 +37,5 @@ pub struct SpectrumClient {
 }
 
 impl SpectrumClient {
-    pub fn new(url: String) -> 
+    pub fn new(url: String) -> SpectrumClient {
+        let ret = 
