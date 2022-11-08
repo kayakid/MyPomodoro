@@ -51,4 +51,7 @@ impl SpectrumClient {
 
         let response: Result<reqwest::Response, reqwest::Error> = self.client
             .get(request_url)
-       
+            .send()
+            .await;
+
+   
