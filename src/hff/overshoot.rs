@@ -50,4 +50,5 @@ impl SpectrumClient {
         let request_url = format!("{}",self.url.clone());
 
         let response: Result<reqwest::Response, reqwest::Error> = self.client
-          
+            .get(request_url)
+       
