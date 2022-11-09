@@ -65,4 +65,5 @@ impl SpectrumClient {
 }
 
 
-#[
+#[derive(Debug, Clone, Copy)]
+pub struct Ov
