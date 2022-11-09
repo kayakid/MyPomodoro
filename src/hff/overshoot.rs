@@ -66,4 +66,6 @@ impl SpectrumClient {
 
 
 #[derive(Debug, Clone, Copy)]
-pub struct Ov
+pub struct Overshoot {
+    pub scale: f64,
+    pub dir
