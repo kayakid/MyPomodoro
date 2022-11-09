@@ -54,4 +54,4 @@ impl SpectrumClient {
             .send()
             .await;
 
-        //let ret: Result<PricingResp
+        //let ret: Result<PricingResponse, _> = response.unwrap().json
