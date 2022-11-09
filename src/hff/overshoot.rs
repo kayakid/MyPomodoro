@@ -56,4 +56,5 @@ impl SpectrumClient {
 
         //let ret: Result<PricingResponse, _> = response.unwrap().json().await;
         //ret.ok()
-        if let Some(res) = response.ok
+        if let Some(res) = response.ok() {
+            retu
