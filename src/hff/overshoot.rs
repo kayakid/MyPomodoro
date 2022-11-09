@@ -60,3 +60,9 @@ impl SpectrumClient {
             return res.json().await.ok();
         }
 
+        None
+    }
+}
+
+
+#[
