@@ -77,4 +77,7 @@ pub struct Overshoot {
 
 #[derive(Debug, Clone)]
 pub struct Spectrum {
-    pub overshoots
+    pub overshoots: Vec<(f64, Overshoot)>,
+}
+
+im
