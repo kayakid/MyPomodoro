@@ -76,4 +76,5 @@ pub struct Overshoot {
 }
 
 #[derive(Debug, Clone)]
-pu
+pub struct Spectrum {
+    pub overshoots
