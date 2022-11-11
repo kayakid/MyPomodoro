@@ -80,4 +80,5 @@ pub struct Spectrum {
     pub overshoots: Vec<(f64, Overshoot)>,
 }
 
-im
+impl Spectrum {
+    pub fn new(scales: Ve
