@@ -72,4 +72,8 @@ pub struct Overshoot {
     pub start: f64,
     pub peak: f64,
     pub current: f64,
-    //pub liquidity:     LocalLiquidit
+    //pub liquidity:     LocalLiquidity,
+}
+
+#[derive(Debug, Clone)]
+pu
