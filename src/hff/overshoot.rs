@@ -71,4 +71,5 @@ pub struct Overshoot {
     pub direction: i64,
     pub start: f64,
     pub peak: f64,
-    pub current: f64
+    pub current: f64,
+    //pub liquidity:     LocalLiquidit
