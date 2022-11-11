@@ -70,4 +70,5 @@ pub struct Overshoot {
     pub scale: f64,
     pub direction: i64,
     pub start: f64,
-    pu
+    pub peak: f64,
+    pub current: f64
