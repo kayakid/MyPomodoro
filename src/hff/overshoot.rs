@@ -90,4 +90,5 @@ impl Spectrum {
         }
     }
 
-  
+    pub fn update(&mut self, x: f64) {
+      
