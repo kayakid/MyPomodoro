@@ -86,4 +86,8 @@ impl Spectrum {
             overshoots: scales
                 .iter()
                 .map(|scale| (*scale, Overshoot::new(*scale)))
-                .co
+                .collect(),
+        }
+    }
+
+  
