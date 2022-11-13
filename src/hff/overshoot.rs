@@ -83,4 +83,4 @@ pub struct Spectrum {
 impl Spectrum {
     pub fn new(scales: Vec<f64>) -> Self {
         Self {
-  
+            overshoots: scales
