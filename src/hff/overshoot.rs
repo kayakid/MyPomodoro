@@ -85,4 +85,5 @@ impl Spectrum {
         Self {
             overshoots: scales
                 .iter()
-                .map(|scale| (*scale, Overshoot:
+                .map(|scale| (*scale, Overshoot::new(*scale)))
+                .co
