@@ -91,4 +91,5 @@ impl Spectrum {
     }
 
     pub fn update(&mut self, x: f64) {
-        for os in &mut self.overs
+        for os in &mut self.overshoots {
+            os.1.update(x)
