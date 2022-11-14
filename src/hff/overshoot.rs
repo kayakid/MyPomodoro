@@ -95,4 +95,5 @@ impl Spectrum {
             os.1.update(x);
         }
     }
-    pub fn maxOS(&self) -> Vec<f6
+    pub fn maxOS(&self) -> Vec<f64> {
+        self.overshoots.iter()
