@@ -97,4 +97,8 @@ impl Spectrum {
     }
     pub fn maxOS(&self) -> Vec<f64> {
         self.overshoots.iter().map(|os| os.1.maxOS()).collect()
- 
+    }
+}
+
+impl Overshoot {
+    pub fn new(
