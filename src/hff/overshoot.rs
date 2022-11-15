@@ -101,4 +101,6 @@ impl Spectrum {
 }
 
 impl Overshoot {
-    pub fn new(
+    pub fn new(scale: f64) -> Self {
+        Self {
+  
