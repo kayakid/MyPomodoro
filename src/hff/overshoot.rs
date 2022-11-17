@@ -107,4 +107,5 @@ impl Overshoot {
             direction: 1,
             start: 1.3745,
             peak: 1.3745,
-            current
+            current: 1.3745,
+            //liquidity: 
