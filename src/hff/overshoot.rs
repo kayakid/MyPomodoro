@@ -112,4 +112,5 @@ impl Overshoot {
         }
     }
 
-    pub fn m
+    pub fn maxOS(&self) -> f64 {
+        100
