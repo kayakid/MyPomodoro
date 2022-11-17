@@ -104,4 +104,5 @@ impl Overshoot {
     pub fn new(scale: f64) -> Self {
         Self {
             scale: scale,
- 
+            direction: 1,
+      
