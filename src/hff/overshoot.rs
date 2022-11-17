@@ -105,4 +105,5 @@ impl Overshoot {
         Self {
             scale: scale,
             direction: 1,
-      
+            start: 1.3745,
+            peak: 
