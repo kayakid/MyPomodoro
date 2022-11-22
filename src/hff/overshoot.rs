@@ -115,4 +115,4 @@ impl Overshoot {
     pub fn maxOS(&self) -> f64 {
         100.0 * (self.peak - self.start) / self.start / self.scale
     }
-    pu
+    pub fn reversal(&self) -> f64 {
