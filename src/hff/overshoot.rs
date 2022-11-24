@@ -119,4 +119,4 @@ impl Overshoot {
         100.0 * (self.current - self.peak) / self.peak / self.scale
     }
 
-    // this is like the update but we return a state corresponding to reversal
+    // this is like the update but we return a state corresponding to reversal (±1, or preset threshold cros
