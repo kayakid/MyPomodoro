@@ -116,4 +116,4 @@ impl Overshoot {
         100.0 * (self.peak - self.start) / self.start / self.scale
     }
     pub fn reversal(&self) -> f64 {
-        100.0 * (self.curren
+        100.0 * (self.current - self.peak) / self.peak / self.sca
