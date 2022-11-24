@@ -120,4 +120,4 @@ impl Overshoot {
     }
 
     // this is like the update but we return a state corresponding to reversal (±1, or preset threshold crossing)
-    pub fn updateWithStat
+    pub fn updateWithState(&mut self, x: f64, omega: f64) -> i64
