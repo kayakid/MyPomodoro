@@ -123,4 +123,5 @@ impl Overshoot {
     pub fn updateWithState(&mut self, x: f64, omega: f64) -> i64 {
         let dir = self.direction;
         let maxOS = self.maxOS();
-    
+        self.update(x);
+        if 
