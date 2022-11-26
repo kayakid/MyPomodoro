@@ -127,4 +127,7 @@ impl Overshoot {
         if dir != self.direction {
             return self.direction;
         }
-        if maxOS > 0.0 && maxOS < omega && self.maxOS() >= o
+        if maxOS > 0.0 && maxOS < omega && self.maxOS() >= omega {
+            return 2;
+        }
+     
