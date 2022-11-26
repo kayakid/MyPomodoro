@@ -125,4 +125,5 @@ impl Overshoot {
         let maxOS = self.maxOS();
         self.update(x);
         if dir != self.direction {
-          
+            return self.direction;
+        }
