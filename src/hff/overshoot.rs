@@ -130,4 +130,4 @@ impl Overshoot {
         if maxOS > 0.0 && maxOS < omega && self.maxOS() >= omega {
             return 2;
         }
-        if maxOS < 0
+        if maxOS < 0.0 && maxOS > -omega && self
