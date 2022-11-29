@@ -139,4 +139,5 @@ impl Overshoot {
     pub fn update(&mut self, x: f64) {
         //new := *ovs
         let cos = 100.0 * (x - self.start) / self.start / self.scale;
-        let eDist = 100.0 * (x - self.peak) / self.peak / self.sc
+        let eDist = 100.0 * (x - self.peak) / self.peak / self.scale;
+        let maxOS = self.maxOS()
