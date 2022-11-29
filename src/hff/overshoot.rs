@@ -137,4 +137,5 @@ impl Overshoot {
     }
 
     pub fn update(&mut self, x: f64) {
-        //new := *ov
+        //new := *ovs
+        let cos = 100.0 * (x - self.sta
