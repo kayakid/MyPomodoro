@@ -142,4 +142,4 @@ impl Overshoot {
         let eDist = 100.0 * (x - self.peak) / self.peak / self.scale;
         let maxOS = self.maxOS();
         // if reversal...
-       
+        if cos * eDist < 0.0 && eDis
