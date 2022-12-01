@@ -148,4 +148,4 @@ impl Overshoot {
             self.peak = x;
             self.current = x;
             // setting the direction right?
-            self.d
+            self.direction = self.maxOS().si
