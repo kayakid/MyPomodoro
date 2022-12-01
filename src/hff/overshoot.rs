@@ -146,4 +146,5 @@ impl Overshoot {
             self.direction = -self.direction;
             self.start = self.peak;
             self.peak = x;
-            self.cu
+            self.current = x;
+            // setting
