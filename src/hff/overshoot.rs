@@ -143,4 +143,5 @@ impl Overshoot {
         let maxOS = self.maxOS();
         // if reversal...
         if cos * eDist < 0.0 && eDist.abs() > 1.0 {
-            self.d
+            self.direction = -self.direction;
+       
