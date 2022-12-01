@@ -145,4 +145,5 @@ impl Overshoot {
         if cos * eDist < 0.0 && eDist.abs() > 1.0 {
             self.direction = -self.direction;
             self.start = self.peak;
-            
+            self.peak = x;
+            self.cu
