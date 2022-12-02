@@ -158,4 +158,5 @@ impl Overshoot {
 }
 
 // Would be nice to have a maxiaml segment analysis version, memoizing sequnces of unexpected scores
-#[derive
+#[derive(Debug, Clone, Copy)]
+pub struct Loc
