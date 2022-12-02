@@ -157,4 +157,4 @@ impl Overshoot {
     }
 }
 
-// Would be nice to have a maxiaml segment 
+// Would be nice to have a maxiaml segment analysis version, memoizing sequ
