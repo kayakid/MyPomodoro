@@ -149,4 +149,5 @@ impl Overshoot {
             self.current = x;
             // setting the direction right?
             self.direction = self.maxOS().signum() as i64;
-        } else if cos
+        } else if cos.abs() > maxOS.abs() {
+         
