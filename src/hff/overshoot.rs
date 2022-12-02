@@ -152,4 +152,5 @@ impl Overshoot {
         } else if cos.abs() > maxOS.abs() {
             self.peak = x;
         }
-        self.cur
+        self.current = x;
+        //self.liquid
