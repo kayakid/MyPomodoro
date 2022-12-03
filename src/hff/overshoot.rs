@@ -159,4 +159,5 @@ impl Overshoot {
 
 // Would be nice to have a maxiaml segment analysis version, memoizing sequnces of unexpected scores
 #[derive(Debug, Clone, Copy)]
-pub struct Loc
+pub struct LocalLiquidity {
+    pub alpha: f64, // exp
