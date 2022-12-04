@@ -161,4 +161,6 @@ impl Overshoot {
 #[derive(Debug, Clone, Copy)]
 pub struct LocalLiquidity {
     pub alpha: f64, // exponential moving average rate
-    pub 
+    pub liq: f64,
+    pub surprise: f64,
+    state:
