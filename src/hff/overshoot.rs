@@ -163,4 +163,4 @@ pub struct LocalLiquidity {
     pub alpha: f64, // exponential moving average rate
     pub liq: f64,
     pub surprise: f64,
-    state:
+    state: i64, // state keeps the status over previ
