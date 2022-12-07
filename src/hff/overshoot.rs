@@ -166,4 +166,5 @@ pub struct LocalLiquidity {
     state: i64, // state keeps the status over previous event (-2, -1, 1, 2)
 }
 
-impl Loc
+impl LocalLiquidity {
+    pub fn 
