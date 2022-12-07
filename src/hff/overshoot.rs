@@ -168,4 +168,5 @@ pub struct LocalLiquidity {
 
 impl LocalLiquidity {
     pub fn new(alpha: f64) -> Self {
-   
+        Self {
+            alp
