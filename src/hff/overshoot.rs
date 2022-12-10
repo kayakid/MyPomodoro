@@ -170,4 +170,6 @@ impl LocalLiquidity {
     pub fn new(alpha: f64) -> Self {
         Self {
             alpha: alpha,
-            liq: 0
+            liq: 0.5,
+            surprise: 0.0,
+           
