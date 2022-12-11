@@ -174,4 +174,6 @@ impl LocalLiquidity {
             surprise: 0.0,
             state: 0,
         }
- 
+    }
+
+    pub fn update(&m
