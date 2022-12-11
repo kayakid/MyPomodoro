@@ -176,4 +176,5 @@ impl LocalLiquidity {
         }
     }
 
-    pub fn update(&m
+    pub fn update(&mut self, maxOS: f64) -> f64 {
+  
