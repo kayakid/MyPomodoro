@@ -172,4 +172,6 @@ impl LocalLiquidity {
             alpha: alpha,
             liq: 0.5,
             surprise: 0.0,
-           
+            state: 0,
+        }
+ 
