@@ -178,4 +178,5 @@ impl LocalLiquidity {
 
     pub fn update(&mut self, maxOS: f64) -> f64 {
         let os = maxOS.signum() * (maxOS.abs() - 1.0);
-       
+        let H1: f64 = 0.28;
+        le
