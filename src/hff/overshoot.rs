@@ -182,4 +182,4 @@ impl LocalLiquidity {
         let H2sr: f64 = 0.66;
         //
         let mut surp = 0.0;
-    
+        if os > 2.52 && self.stat
