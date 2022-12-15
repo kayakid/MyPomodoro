@@ -181,3 +181,5 @@ impl LocalLiquidity {
         let H1: f64 = 0.28;
         let H2sr: f64 = 0.66;
         //
+        let mut surp = 0.0;
+    
