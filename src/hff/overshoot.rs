@@ -185,4 +185,4 @@ impl LocalLiquidity {
         if os > 2.52 && self.state != 2 {
             surp = 2.52;
             self.state = 2;
-        } else i
+        } else if os < -2.52 && self.state 
