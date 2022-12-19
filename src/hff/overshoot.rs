@@ -190,4 +190,5 @@ impl LocalLiquidity {
             self.state = -2;
         } else if os > 0.0 && self.state <= 0 {
             surp = 0.083;
-            self.s
+            self.state = 1;
+        } else if os < 0
