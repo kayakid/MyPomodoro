@@ -198,4 +198,5 @@ impl LocalLiquidity {
             return self.liq;
         }
 
-        self.surprise = self.alpha * self.surprise + (1.0 - self.alpha) * surp; // -log(exp(-os)
+        self.surprise = self.alpha * self.surprise + (1.0 - self.alpha) * surp; // -log(exp(-os))
+        self.liq = 1.0 -
