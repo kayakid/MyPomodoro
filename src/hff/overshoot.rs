@@ -199,4 +199,4 @@ impl LocalLiquidity {
         }
 
         self.surprise = self.alpha * self.surprise + (1.0 - self.alpha) * surp; // -log(exp(-os))
-        self.liq = 1.0 -
+        self.liq = 1.0 - Liquidity::CumNorm((self.sur
