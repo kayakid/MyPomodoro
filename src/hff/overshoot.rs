@@ -195,4 +195,7 @@ impl LocalLiquidity {
             surp = 0.083;
             self.state = -1;
         } else {
-            return self.liq
+            return self.liq;
+        }
+
+        self.surpris
