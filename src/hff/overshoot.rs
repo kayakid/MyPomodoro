@@ -212,3 +212,5 @@ pub struct Liquidity {
 
 impl Liquidity {
     pub fn new(alpha: f64) -> Self {
+        Self {
+            alp
