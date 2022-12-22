@@ -204,4 +204,5 @@ impl LocalLiquidity {
     }
 }
 
-pub struct Liquidity
+pub struct Liquidity {
+    pub alpha: f64, // exponential moving ave
