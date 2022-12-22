@@ -205,4 +205,6 @@ impl LocalLiquidity {
 }
 
 pub struct Liquidity {
-    pub alpha: f64, // exponential moving ave
+    pub alpha: f64, // exponential moving average rate
+    pub liq: f64,
+    pub s
