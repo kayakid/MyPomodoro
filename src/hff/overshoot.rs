@@ -219,4 +219,5 @@ impl Liquidity {
         }
     }
 
-    pub fn update(&mut self, 
+    pub fn update(&mut self, maxOS: f64) -> f64 {
+        let os = ma
