@@ -215,3 +215,7 @@ impl Liquidity {
         Self {
             alpha: alpha,
             liq: 0.5,
+            surprise: 0.0,
+        }
+    }
+
