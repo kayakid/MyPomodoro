@@ -220,4 +220,5 @@ impl Liquidity {
     }
 
     pub fn update(&mut self, maxOS: f64) -> f64 {
-        let os = ma
+        let os = maxOS.abs() - 1.0;
+        let H1: f
