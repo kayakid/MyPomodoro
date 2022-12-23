@@ -219,3 +219,4 @@ impl Liquidity {
         }
     }
 
+    pub fn update(&mut self, 
