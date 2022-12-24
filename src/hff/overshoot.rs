@@ -224,4 +224,4 @@ impl Liquidity {
         let H1: f64 = 1.0;
         let H2: f64 = 1.0;
         self.surprise = self.alpha * self.surprise + (1.0 - self.alpha) * os; // -log(exp(-os))
-      
+        self.liq = 1.0 - Liquidit
