@@ -228,4 +228,5 @@ impl Liquidity {
         self.liq
     }
 
-    pub fn CumNorm(x: f
+    pub fn CumNorm(x: f64) -> f64 {
+   
