@@ -223,4 +223,5 @@ impl Liquidity {
         let os = maxOS.abs() - 1.0;
         let H1: f64 = 1.0;
         let H2: f64 = 1.0;
-        self.surprise = self.alpha * self.surprise + (1.0 - self.
+        self.surprise = self.alpha * self.surprise + (1.0 - self.alpha) * os; // -log(exp(-os))
+      
