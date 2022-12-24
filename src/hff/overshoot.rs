@@ -225,4 +225,7 @@ impl Liquidity {
         let H2: f64 = 1.0;
         self.surprise = self.alpha * self.surprise + (1.0 - self.alpha) * os; // -log(exp(-os))
         self.liq = 1.0 - Liquidity::CumNorm((self.surprise - H1) / H2.sqrt());
-      
+        self.liq
+    }
+
+    pub fn CumNorm(x: f
