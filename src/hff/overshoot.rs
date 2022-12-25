@@ -230,4 +230,6 @@ impl Liquidity {
 
     pub fn CumNorm(x: f64) -> f64 {
         if x > 6.0 {
-            ret
+            return 1.0;
+        }
+        if x
