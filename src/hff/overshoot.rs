@@ -233,4 +233,7 @@ impl Liquidity {
             return 1.0;
         }
         if x < -6.0 {
-            return 0.0
+            return 0.0;
+        }
+
+        let b1 = 0.
