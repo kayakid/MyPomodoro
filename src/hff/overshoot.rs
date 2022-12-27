@@ -232,4 +232,5 @@ impl Liquidity {
         if x > 6.0 {
             return 1.0;
         }
-        if x
+        if x < -6.0 {
+            return 0.0
