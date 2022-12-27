@@ -236,4 +236,5 @@ impl Liquidity {
             return 0.0;
         }
 
-        let b1 = 0.
+        let b1 = 0.31938153;
+        let b2 = -0.3565
