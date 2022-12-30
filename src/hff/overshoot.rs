@@ -245,4 +245,5 @@ impl Liquidity {
         let c2 = 0.3989423;
 
         let a = x.abs();
-  
+        let t = 1.0 / (1.0 + a * p);
+      
