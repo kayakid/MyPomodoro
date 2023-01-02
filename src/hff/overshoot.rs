@@ -247,4 +247,7 @@ impl Liquidity {
         let a = x.abs();
         let t = 1.0 / (1.0 + a * p);
         let b = c2 * ((-x) * (x / 2.0)).exp();
-        let mut n = ((((b5 * t + b4) * t + b3) * t + b2) * t + b1) 
+        let mut n = ((((b5 * t + b4) * t + b3) * t + b2) * t + b1) * t;
+        n = 1.0 - b * n;
+
+      
