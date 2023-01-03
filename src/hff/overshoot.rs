@@ -251,4 +251,7 @@ impl Liquidity {
         n = 1.0 - b * n;
 
         if x < 0.0 {
-            
+            n = 1.0 - n;
+        }
+        n
+ 
