@@ -1,2 +1,4 @@
 /* quotes, ticks and other pricing stuff */
-use serde::Deseri
+use serde::Deserialize;
+
+#[derive(Debug,Deser
