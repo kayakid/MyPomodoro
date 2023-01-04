@@ -254,4 +254,5 @@ impl Liquidity {
             n = 1.0 - n;
         }
         n
- 
+    }
+}
