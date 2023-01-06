@@ -9,4 +9,6 @@ pub struct Bar {
     lbid: f64,
     pub cbid: f64,
     oask: f64,
-    hask: f
+    hask: f64,
+    lask: f64,
+    pub cask: f
