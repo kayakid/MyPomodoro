@@ -11,4 +11,7 @@ pub struct Bar {
     oask: f64,
     hask: f64,
     lask: f64,
-    pub cask: f
+    pub cask: f64,
+}
+impl Bar {
+    pub fn tim
