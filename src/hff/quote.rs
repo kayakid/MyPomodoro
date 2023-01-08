@@ -15,4 +15,6 @@ pub struct Bar {
 }
 impl Bar {
     pub fn time(&self) -> u64 {
-        se
+        self.time / 1000
+    }
+    pub fn p
