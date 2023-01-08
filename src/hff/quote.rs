@@ -14,4 +14,5 @@ pub struct Bar {
     pub cask: f64,
 }
 impl Bar {
-    pub fn tim
+    pub fn time(&self) -> u64 {
+        se
