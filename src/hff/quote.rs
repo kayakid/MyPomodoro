@@ -28,4 +28,5 @@ impl Bar {
         self.cbid
     }
 
-    pub fn spread(&sel
+    pub fn spread(&self) -> f64 {
+        self.
