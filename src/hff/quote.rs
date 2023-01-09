@@ -18,4 +18,7 @@ impl Bar {
         self.time / 1000
     }
     pub fn price(&self) -> f64 {
-        (self.cbi
+        (self.cbid+self.cask)/2.0
+    }
+
+    pub f
