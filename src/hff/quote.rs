@@ -24,4 +24,5 @@ impl Bar {
     pub fn buy_price(&self) -> f64 {
         self.cask
     }
-    pub fn sell_price
+    pub fn sell_price(&self) -> f64 {
+      
