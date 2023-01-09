@@ -21,4 +21,5 @@ impl Bar {
         (self.cbid+self.cask)/2.0
     }
 
-    pub f
+    pub fn buy_price(&self) -> f64 {
+        s
