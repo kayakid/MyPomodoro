@@ -17,4 +17,5 @@ impl Bar {
     pub fn time(&self) -> u64 {
         self.time / 1000
     }
-    pub fn p
+    pub fn price(&self) -> f64 {
+        (self.cbi
