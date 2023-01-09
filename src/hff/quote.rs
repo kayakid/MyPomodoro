@@ -25,4 +25,7 @@ impl Bar {
         self.cask
     }
     pub fn sell_price(&self) -> f64 {
-      
+        self.cbid
+    }
+
+    pub fn spread(&sel
