@@ -29,4 +29,8 @@ impl Bar {
     }
 
     pub fn spread(&self) -> f64 {
-        self.
+        self.cbid - self.cask
+    }
+}
+
+#[derive(Deb
