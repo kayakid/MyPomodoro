@@ -33,4 +33,6 @@ impl Bar {
     }
 }
 
-#[derive(Deb
+#[derive(Debug)]
+pub struct Tick {
+    pub time
