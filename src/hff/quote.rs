@@ -41,4 +41,4 @@ pub struct Tick {
 }
 
 impl Tick {
-    
+    /* constructor from a Bar, we take c
