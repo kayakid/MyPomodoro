@@ -37,4 +37,8 @@ impl Bar {
 pub struct Tick {
     pub time: i64,
     pub bid: f64,
-    pub 
+    pub ask: f64,
+}
+
+impl Tick {
+    
