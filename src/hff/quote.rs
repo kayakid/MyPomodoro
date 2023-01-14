@@ -35,4 +35,6 @@ impl Bar {
 
 #[derive(Debug)]
 pub struct Tick {
-    pub time
+    pub time: i64,
+    pub bid: f64,
+    pub 
