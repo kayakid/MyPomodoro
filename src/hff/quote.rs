@@ -41,4 +41,5 @@ pub struct Tick {
 }
 
 impl Tick {
-    /* constructor from a Bar, we take c
+    /* constructor from a Bar, we take close bid-ask */
+    pub fn 
