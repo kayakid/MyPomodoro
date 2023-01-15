@@ -46,4 +46,8 @@ impl Tick {
         Self {
             time: bar.time as i64,
             bid: bar.cbid,
-            ask: bar.c
+            ask: bar.cask,
+        }
+    }
+
+    pub fn time(&s
