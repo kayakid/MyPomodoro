@@ -45,4 +45,5 @@ impl Tick {
     pub fn new(bar: &Bar) -> Self {
         Self {
             time: bar.time as i64,
-            bid: bar
+            bid: bar.cbid,
+            ask: bar.c
