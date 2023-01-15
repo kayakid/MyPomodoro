@@ -50,4 +50,5 @@ impl Tick {
         }
     }
 
-    pub fn time(&s
+    pub fn time(&self) -> i64 {
+        self.ti
