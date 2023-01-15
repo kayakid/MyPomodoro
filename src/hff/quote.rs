@@ -53,4 +53,5 @@ impl Tick {
     pub fn time(&self) -> i64 {
         self.time / 1000
     }
-    pub fn price
+    pub fn price(&self) -> f64 {
+        (self.bid+self.
