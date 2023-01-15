@@ -43,4 +43,5 @@ pub struct Tick {
 impl Tick {
     /* constructor from a Bar, we take close bid-ask */
     pub fn new(bar: &Bar) -> Self {
-        Se
+        Self {
+            time: bar.time as i6
