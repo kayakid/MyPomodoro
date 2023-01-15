@@ -44,4 +44,5 @@ impl Tick {
     /* constructor from a Bar, we take close bid-ask */
     pub fn new(bar: &Bar) -> Self {
         Self {
-            time: bar.time as i6
+            time: bar.time as i64,
+            bid: bar
