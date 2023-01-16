@@ -58,4 +58,6 @@ impl Tick {
     }
 
     pub fn buy_price(&self) -> f64 {
-        
+        self.ask
+    }
+    pub fn sell_price(&s
