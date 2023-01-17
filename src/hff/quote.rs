@@ -67,3 +67,4 @@ impl Tick {
     pub fn spread(&self) -> f64 {
         self.bid - self.ask
     }
+}
