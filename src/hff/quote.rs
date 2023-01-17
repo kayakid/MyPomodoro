@@ -62,4 +62,6 @@ impl Tick {
     }
     pub fn sell_price(&self) -> f64 {
         self.bid
-  
+    }
+
+    pub fn spread(&self) 
