@@ -87,3 +87,29 @@ impl Gear {
                 g_start: 1.0,
                 p_end: price1,
                 g_end: -1.0,
+            }],
+            p_n: price1,
+            g_n: -1.0,
+        }
+    }
+
+    pub fn segment(price0: f64, g_0: f64, price1: f64, g_1: f64) -> Self {
+        Self {
+            p_0: price0,
+            g_0: g_0,
+            g_i: vec![GearRange{
+                p_start: price0,
+                g_start: g_0,
+                p_end: price1,
+                g_end: g_1,
+            }],
+            p_n: price1,
+            g_n: g_1,
+        }
+    }
+
+    pub fn jump(price0: f64, g_0: f64, g_n: f64) -> Self {
+        Self {
+            p_0: price0,
+            g_0: g_0,
+            g_i: vec![],
