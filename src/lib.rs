@@ -58,3 +58,32 @@ impl Gear {
             g_0: 0.0,
             g_i: vec![GearRange{
                 p_start: price0,
+                g_start: 0.0,
+                p_end: price1,
+                g_end: -1.0,
+            }],
+            p_n: price1,
+            g_n: -1.0,
+        }
+    }
+
+    pub fn constant(dir: i64) -> Self {
+        Self {
+            p_0: 1.0,
+            g_0: if dir > 0 { 1.0} else { -1.0 },
+            g_i: vec![],
+            p_n: 1.0,
+            g_n: if dir > 0 { 1.0} else { -1.0 },
+        }
+    }
+
+    //
+    pub fn symmetric(price0: f64, price1:f64) -> Self {
+        Self {
+            p_0: price0,
+            g_0: 1.0,
+            g_i: vec![GearRange{
+                p_start: price0,
+                g_start: 1.0,
+                p_end: price1,
+                g_end: -1.0,
