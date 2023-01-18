@@ -156,3 +156,38 @@ impl Gear {
             if (x >= g.p_start && x < g.p_end) {
                 return  g.g(x);
             }
+        }
+        0.0
+    }
+}
+
+
+
+
+#[cfg(test)]
+mod tests {
+    use super::Gear;
+    #[test]
+    fn exploration() {
+        assert_eq!(2 + 2, 4);
+    }
+
+    #[test]
+    fn symmetric() {
+        let gear = Gear::symmetric(0.5, 1.5);
+        assert_eq!(gear.g(0.25), 1.0);
+        assert_eq!(gear.g(0.5), 1.0);
+        assert_eq!(gear.g(0.75), 0.5);
+        assert_eq!(gear.g(1.0), 0.0);
+        assert_eq!(gear.g(1.25), -0.5);
+        assert_eq!(gear.g(1.5), -1.0);
+        assert_eq!(gear.g(2.0), -1.0);
+    }
+
+ #[test]
+    fn constant_minus() {
+        let gear = Gear::constant(-1);
+        assert_eq!(gear.g(0.25), -1.0);
+        assert_eq!(gear.g(1.5), -1.0);
+    }
+ #[test]
