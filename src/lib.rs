@@ -113,3 +113,46 @@ impl Gear {
             p_0: price0,
             g_0: g_0,
             g_i: vec![],
+            p_n: price0,
+            g_n: g_n,
+        }
+    }
+
+    pub fn coastline(direction: i64, price0: f64, scale: f64, imax: f64) -> Self {
+        if direction > 0 {
+            Self {
+                p_0: price0 - imax*scale,
+                g_0: 1.0,
+                g_i:vec![GearRange{
+                    p_start: price0 - imax*scale,
+                    g_start: 1.0,
+                    p_end: price0 + scale,
+                    g_end: 0.0,
+                }],
+                p_n: price0 + scale,
+                g_n: 0.0,
+            }
+        } else {
+            Self {
+                p_0: price0 - scale,
+                g_0: 0.0,
+                g_i:vec![GearRange{
+                    p_start: price0 - scale,
+                    g_start: 0.0,
+                    p_end: price0 + imax*scale,
+                    g_end: -1.0,
+                }],
+                p_n: price0 + imax*scale,
+                g_n: -1.0,
+            }
+        }
+    }
+
+    pub fn g(&self, x: f64) -> f64 {
+        if x < self.p_0 {return self.g_0;}
+        if x >= self.p_n {return self.g_n;}
+
+        for g in self.g_i.iter() {
+            if (x >= g.p_start && x < g.p_end) {
+                return  g.g(x);
+            }
