@@ -191,3 +191,11 @@ mod tests {
         assert_eq!(gear.g(1.5), -1.0);
     }
  #[test]
+    fn constant_plus() {
+        let gear = Gear::constant(1);
+        assert_eq!(gear.g(0.25), 1.0);
+        assert_eq!(gear.g(1.5), 1.0);
+    }
+
+
+}
