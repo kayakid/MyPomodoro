@@ -10,4 +10,4 @@ pub struct Client {
 }
 
 impl Client {
-    p
+    pub fn new(url: String, acco
