@@ -10,4 +10,4 @@ pub struct Client {
 }
 
 impl Client {
-    pub fn new(url: String, acco
+    pub fn new(url: String, account: String, token: String) 
