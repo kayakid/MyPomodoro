@@ -6,4 +6,8 @@ pub struct Client {
     token: String,
     url: String,
     account: String,
-    client: reqwest::Cli
+    client: reqwest::Client,
+}
+
+impl Client {
+    p
