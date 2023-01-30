@@ -5,4 +5,5 @@ use serde_json::json;
 pub struct Client {
     token: String,
     url: String,
-    accou
+    account: String,
+    client: reqwest::Cli
