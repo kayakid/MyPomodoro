@@ -17,4 +17,7 @@ impl Client {
             url: url,
             client: reqwest::Client::new(),
         };
- 
+        ret
+    }
+
+    pub as
