@@ -15,4 +15,6 @@ impl Client {
             token: token,
             account: account,
             url: url,
-            client:
+            client: reqwest::Client::new(),
+        };
+ 
