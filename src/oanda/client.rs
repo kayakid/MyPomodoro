@@ -14,4 +14,5 @@ impl Client {
         let ret = Client {
             token: token,
             account: account,
-          
+            url: url,
+            client:
