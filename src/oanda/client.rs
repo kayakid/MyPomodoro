@@ -20,4 +20,4 @@ impl Client {
         ret
     }
 
-    pub as
+    pub async fn get_pricing(&self, instrument: String) -
