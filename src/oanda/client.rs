@@ -10,4 +10,5 @@ pub struct Client {
 }
 
 impl Client {
-    pub fn new(url: String, account: String, token: String) 
+    pub fn new(url: String, account: String, token: String) -> Client {
+        let ret 
