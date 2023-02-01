@@ -21,4 +21,4 @@ impl Client {
     }
 
     pub async fn get_pricing(&self, instrument: String) -> Option<PricingResponse> {
-        le
+        let request_url = format!("{}/v3/accoun
