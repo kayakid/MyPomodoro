@@ -20,4 +20,5 @@ impl Client {
         ret
     }
 
-    pub async fn get_pricing(&self, instrument: String) -
+    pub async fn get_pricing(&self, instrument: String) -> Option<PricingResponse> {
+        le
