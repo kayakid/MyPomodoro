@@ -23,4 +23,5 @@ impl Client {
     pub async fn get_pricing(&self, instrument: String) -> Option<PricingResponse> {
         let request_url = format!("{}/v3/accounts/{}/pricing?instruments={}",self.url.clone(), self.account, instrument);
 
-        let response: Result<reqwest::Response, reqwest::Error> = self.cl
+        let response: Result<reqwest::Response, reqwest::Error> = self.client
+            .get(request_url)
