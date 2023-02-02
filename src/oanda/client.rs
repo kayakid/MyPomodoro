@@ -25,3 +25,4 @@ impl Client {
 
         let response: Result<reqwest::Response, reqwest::Error> = self.client
             .get(request_url)
+            .bearer_auth(sel
