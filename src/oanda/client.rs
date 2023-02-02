@@ -27,3 +27,6 @@ impl Client {
             .get(request_url)
             .bearer_auth(self.token.clone())
             .send()
+            .await;
+
+        //let r
