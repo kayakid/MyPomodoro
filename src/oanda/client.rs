@@ -29,4 +29,5 @@ impl Client {
             .send()
             .await;
 
-        //let ret: Result<PricingResponse, _> = respons
+        //let ret: Result<PricingResponse, _> = response.unwrap().json().await;
+        //
