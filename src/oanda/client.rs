@@ -31,4 +31,5 @@ impl Client {
 
         //let ret: Result<PricingResponse, _> = response.unwrap().json().await;
         //ret.ok()
-        if let Some(res) = 
+        if let Some(res) = response.ok() {
+            return 
