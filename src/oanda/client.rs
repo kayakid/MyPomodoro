@@ -38,4 +38,4 @@ impl Client {
         None
     }
 
-    pub asyn
+    pub async fn get_open_positions(&sel
