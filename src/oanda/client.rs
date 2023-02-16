@@ -38,4 +38,5 @@ impl Client {
         None
     }
 
-    pub async fn get_open_positions(&self,) -> Option<OpenPositionsResp
+    pub async fn get_open_positions(&self,) -> Option<OpenPositionsResponse> {
+        let request_u
