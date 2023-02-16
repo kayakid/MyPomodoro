@@ -41,4 +41,4 @@ impl Client {
     pub async fn get_open_positions(&self,) -> Option<OpenPositionsResponse> {
         let request_url = format!("{}/v3/accounts/{}/openPositions",self.url.clone(), self.account);
 
-        let response: Result<reqwest::Response, 
+        let response: Result<reqwest::Response, reqwest::Error> = self.client
