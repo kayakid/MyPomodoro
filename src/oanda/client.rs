@@ -52,4 +52,4 @@ impl Client {
 //        }
 //        println!("open positions call result... {:?}", response);
 
- 
+        if let Some(res) = respon
