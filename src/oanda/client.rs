@@ -53,4 +53,6 @@ impl Client {
 //        println!("open positions call result... {:?}", response);
 
         if let Some(res) = response.ok() {
-            return res
+            return res.json().await.ok();
+        }
+    //    l
