@@ -47,4 +47,4 @@ impl Client {
             .send()
             .await;
 //        if response.is_err() {
-//            respon
+//            response.err().map(|e|   println!("
