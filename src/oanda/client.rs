@@ -45,4 +45,5 @@ impl Client {
             .get(request_url)
             .bearer_auth(self.token.clone())
             .send()
-            .
+            .await;
+//        if response.i
