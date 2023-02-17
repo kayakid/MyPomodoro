@@ -50,4 +50,6 @@ impl Client {
 //            response.err().map(|e|   println!("{}", e.to_string()));
 //
 //        }
-//        println!("open pos
+//        println!("open positions call result... {:?}", response);
+
+ 
