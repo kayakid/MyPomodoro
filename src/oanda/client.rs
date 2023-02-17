@@ -49,4 +49,5 @@ impl Client {
 //        if response.is_err() {
 //            response.err().map(|e|   println!("{}", e.to_string()));
 //
-//
+//        }
+//        println!("open pos
