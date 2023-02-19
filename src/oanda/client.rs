@@ -56,4 +56,7 @@ impl Client {
             return res.json().await.ok();
         }
     //    let ret: Result<OpenPositionsResponse, _> = response.unwrap().json().await;
-    //    ret.o
+    //    ret.ok()
+        None
+    }
+
