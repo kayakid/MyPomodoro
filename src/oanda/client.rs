@@ -60,4 +60,4 @@ impl Client {
         None
     }
 
-    pub async fn post_order_request(
+    pub async fn post_order_request(&self, order: &OrderRequest) -> 
