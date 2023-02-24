@@ -61,4 +61,6 @@ impl Client {
     }
 
     pub async fn post_order_request(&self, order: &OrderRequest) -> Option<PostOrderResponse> {
-        let request_url = format!("{}/v3/accounts/{}/orders",self.url.clone
+        let request_url = format!("{}/v3/accounts/{}/orders",self.url.clone(), self.account);
+
+        let resp
