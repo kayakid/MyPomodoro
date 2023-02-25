@@ -63,4 +63,5 @@ impl Client {
     pub async fn post_order_request(&self, order: &OrderRequest) -> Option<PostOrderResponse> {
         let request_url = format!("{}/v3/accounts/{}/orders",self.url.clone(), self.account);
 
-        let response: Result<reqwest::Response, reqwest::Error> = se
+        let response: Result<reqwest::Response, reqwest::Error> = self.client
+            .post(request_ur
