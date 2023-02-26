@@ -71,4 +71,5 @@ impl Client {
             .await;
 
         if let Some(res) = response.ok() {
-           
+            return res.json().await.ok();
+        
