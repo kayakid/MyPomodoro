@@ -70,4 +70,5 @@ impl Client {
             .send()
             .await;
 
-        if let Some(res) = r
+        if let Some(res) = response.ok() {
+           
