@@ -70,4 +70,4 @@ impl Client {
             .send()
             .await;
 
-  
+        if let Some(res) = r
