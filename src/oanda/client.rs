@@ -64,4 +64,5 @@ impl Client {
         let request_url = format!("{}/v3/accounts/{}/orders",self.url.clone(), self.account);
 
         let response: Result<reqwest::Response, reqwest::Error> = self.client
-            .post(request_ur
+            .post(request_url)
+            .bearer_auth(self.token.cl
