@@ -65,4 +65,5 @@ impl Client {
 
         let response: Result<reqwest::Response, reqwest::Error> = self.client
             .post(request_url)
-            .bearer_auth(self.token.cl
+            .bearer_auth(self.token.clone())
+            .json(&orde
