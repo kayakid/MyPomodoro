@@ -54,3 +54,37 @@ pub struct LiquidityResponse {
     liquidity: i64,
 }
 #[derive(Deserialize, Debug)]
+pub struct PriceResponse {
+    time: String,
+    bids: Vec<LiquidityResponse>,
+    asks: Vec<LiquidityResponse>,
+}
+#[derive(Deserialize, Debug)]
+pub struct PricingResponse {
+    time: String,
+    prices: Vec<PriceResponse>,
+}
+impl PricingResponse {
+    pub fn get_tick(&self) -> Tick {
+        Tick{
+            time:  DateTime::parse_from_rfc3339(self.prices.first().map(|p| p.time.clone()).unwrap().as_str()).unwrap().timestamp(),
+            bid: (self.prices.first().map(|p| p.bids.first().map(|l| l.price.clone()).unwrap()).unwrap()).parse::<f64>().unwrap(),
+            ask: (self.prices.first().map(|p| p.asks.first().map(|l| l.price.clone()).unwrap()).unwrap()).parse::<f64>().unwrap(),
+        }
+    }
+}
+
+#[derive(Serialize, Debug)]
+pub struct OrderRequestInner {
+    units: String,
+    instrument: String,
+    timeInForce: String,
+    #[serde(rename="type")]
+    ordertype: String,
+    positionFill: String,
+
+}
+
+#[derive(Serialize, Debug)]
+pub struct OrderRequest {
+    pub order: OrderRequestInner,
