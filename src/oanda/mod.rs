@@ -88,3 +88,45 @@ pub struct OrderRequestInner {
 #[derive(Serialize, Debug)]
 pub struct OrderRequest {
     pub order: OrderRequestInner,
+}
+
+impl OrderRequest {
+    pub fn new(units: i64, instrument: String) -> Self {
+        Self {
+            order: OrderRequestInner {
+                units: units.to_string(),
+                instrument: instrument,
+                timeInForce: "FOK".to_owned(),
+                ordertype: "MARKET".to_owned(),
+                positionFill: "DEFAULT".to_owned(),
+            }
+        }
+    }
+}
+
+
+#[derive(Deserialize, Debug)]
+pub struct OrderFillTransactionResponse {
+    pub price: String,
+    pub units: String,
+    #[serde(rename="type")]
+    pub filltype: String,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct PostOrderResponse {
+    orderFillTransaction: OrderFillTransactionResponse
+}
+
+impl PostOrderResponse {
+    pub fn get_order_fill(&self) -> Option<OrderFill> {
+        if self.orderFillTransaction.filltype != "ORDER_FILL" {
+            None
+        } else {
+            Some(OrderFill {
+                price: self.orderFillTransaction.price.parse::<f64>().unwrap(),
+                units: self.orderFillTransaction.units.parse::<i64>().unwrap(),
+            })
+        }
+    }
+}
